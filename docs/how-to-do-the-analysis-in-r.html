@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>After importing the data into R, read through the metadata file that is downloaded as a pdf file along with the <code>.csv</code> file to better understand the data.</li>
 </ol>
 <blockquote>
-<p><strong>Reference</strong></p>
+<p><strong>Data can be found here</strong></p>
 </blockquote>
 <blockquote>
 <p><a href="https://www.protectedplanet.net/en/search-areas?geo_type=site" class="uri">https://www.protectedplanet.net/en/search-areas?geo_type=site</a></p>
@@ -253,6 +253,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We want to separate protected areas identified as exclusively terrestrial from those that include marine areas. Try this in the <code>Console</code>:</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-do-the-analysis-in-r.html#cb10-1"></a><span class="kw">filter</span>(data1, MARINE <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<ol start="9" style="list-style-type: decimal">
+<li>To filter data that include marine areas, we run this code in the <code>Console</code>:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="how-to-do-the-analysis-in-r.html#cb11-1"></a>data2 &lt;-<span class="st"> </span><span class="kw">filter</span>(data1, MARINE <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<ol start="10" style="list-style-type: decimal">
+<li>Before computing the average size of coastal MPAs, we will need to filter the data to remove rows with null values in the <code>REP_AREA</code> column. Try this code in the <code>Console</code></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-do-the-analysis-in-r.html#cb12-1"></a>data2 &lt;-<span class="st"> </span><span class="kw">filter</span>(data2, <span class="op">!</span><span class="kw">is.na</span>(REP_AREA))</span></code></pre></div>
+<p>Now we can calculate the average size of the coastal MPAs. Let’s run this code:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-do-the-analysis-in-r.html#cb13-1"></a><span class="kw">mean</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
+<p>The median size of the coastal MPAs can lso be found by running a similar code as follows:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-do-the-analysis-in-r.html#cb14-1"></a><span class="kw">median</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
 
 </div>
 </div>

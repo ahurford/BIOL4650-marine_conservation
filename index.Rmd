@@ -41,7 +41,7 @@ If your data has not loaded, the most likely problem is a spelling error or prob
 
 5.  After importing the data into R, read through the metadata file that is downloaded as a pdf file along with the `.csv` file to better understand the data.
 
-> **Reference**
+> **Data can be found here**
 
 > <https://www.protectedplanet.net/en/search-areas?geo_type=site>
 
@@ -90,4 +90,27 @@ Note that the output of `select(data1, MARINE)` is a data frame.
 
 ```{r, results=F}
 filter(data1, MARINE == 0)
+```
+
+9. To filter data that include marine areas, we run this code in the `Console`:
+
+```{r, results=F}
+data2 <- filter(data1, MARINE != 0)
+```
+
+10. Before computing the average size of coastal MPAs, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
+
+```{r, results=F}
+data2 <- filter(data2, !is.na(REP_AREA))
+```
+
+Now we can calculate the average size of the coastal MPAs. Let's run this code:
+
+```{r, results=F}
+mean(data2$REP_AREA)
+```
+
+The median size of the coastal MPAs can lso be found by running a similar code as follows:
+```{r, results=F}
+median(data2$REP_AREA)
 ```
