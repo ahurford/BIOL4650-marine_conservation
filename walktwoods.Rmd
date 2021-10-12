@@ -211,3 +211,6 @@ t.test(Rham.area, Faba.area)
 Given the p-value of $1.76 \times 10^{-10}$, which is less than $\alpha = 0.05$, we reject our null hypothesis that the mean cross-sectional area of vessels is the same for Rhamnaceae and Fabaceae species. Therefore, our analysis suggest that the average cross-section vessel area for species of these Families are different.
 
 
+
+<!--chapter:end:index.Rmd-->
+
