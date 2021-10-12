@@ -33,41 +33,17 @@ data1 <- read.csv(file = "protected_areas.csv")
 head(data1)
 ```
 
-If your data has not loaded, the most likely problem is a spelling error or problems with specifying the [path](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory) to `woods.csv`. You might try:
+If your data has not loaded, the most likely problem is a spelling error or problems with specifying the [path](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory) to `protected_areas.csv`. You might try:
 
 -   the [RStudio way](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#the-rstudio-way-the-import-feature) of importing your data, or
 
--   moving `woods.csv` to your [working directory](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#the-rstudio-way-the-import-feature).
+-   moving `protected_areas.csv` to your [working directory](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#the-rstudio-way-the-import-feature).
 
-5.  After importing the data into R, read through the metadata file (below) to better understand the data.
+5.  After importing the data into R, read through the metadata file that is downloaded as a pdf file along with the `.csv` file to better understand the data.
 
-> **Metadata Overview** Original Article Data used in this exerise originates from a Zanne, A. E., et al. (2010) study. The full article reference can be found below.
->
-> **Columns in the data frame**
->
-> Column 1: Family - The taxonomic family of the plant
->
-> Column 2: Binomial - Refers to the genus and species for each plant
->
-> Column 3: Amm - Average cross-sectional vessel area (in $mm^2$)
->
-> Column 4: Nnn - Number of vessels per unit cross section area (in $mm^2$)
->
-> Column 5: F - (F = $\frac{Amm^2}{Nmm^2}$ Fraction of cross sectional area that is in vessels (in $mm^2/mm^2$)
->
-> Column 6: logA - log10 transformation of Amm (in $mm^2$)
->
-> Column 7: logN - log10 transformation of Nmm (in $mm^2$)
->
-> Column 8: logF - log10 transformation of F (in $\frac{Amm^2}{Nmm^2}$
->
-> Column 9: Dens - Wood density measurement
->
-> Column 10: AbsLat - Average of the absolute value of latitude (in degrees)
->
 > **Reference**
->
-> Zanne, A. E., Westoby, M., Falster, D. S., Ackerly, D. D., Loarie, S. R., Arnold, S. E. J., & Coomes, D. A. (2010). Angiosperm wood structure: Global patterns in vessel anatomy and their relation to wood density and potential conductivity. American Journal of Botany, 97(2), 207--215. <https://doi.org/10.3732/ajb.0900178>
+
+> <https://www.protectedplanet.net/en/search-areas?geo_type=site>
 
 ```{r}
 head(data1)
