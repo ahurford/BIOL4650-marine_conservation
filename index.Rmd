@@ -98,7 +98,7 @@ filter(data1, MARINE == 0)
 data2 <- filter(data1, MARINE != 0)
 ```
 
-10. Before computing the average size of coastal MPAs, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
+10. We want to compute the average size of coastal MPAs. Before we doing this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
 
 ```{r, results=F}
 data2 <- filter(data2, !is.na(REP_AREA))
