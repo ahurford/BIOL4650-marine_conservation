@@ -134,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html"><i class="fa fa-check"></i>How to do the analysis in R</a><ul>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i>Data importation and Filtering</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#graphing"><i class="fa fa-check"></i>Graphing</a></li>
 </ul></li>
 </ul>
 
@@ -265,14 +266,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-do-the-analysis-in-r.html#cb13-1"></a><span class="kw">mean</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
 <p>The median size of the coastal MPAs can lso be found by running a similar code as follows:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-do-the-analysis-in-r.html#cb14-1"></a><span class="kw">median</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
-<ol start="11" style="list-style-type: decimal">
+</div>
+<div id="graphing" class="section level2 unnumbered">
+<h2>Graphing</h2>
+<p>This section will give a brief overview of how to use graphs to understand some key concepts from the data which would be difficult to understand by just studying the raw data.</p>
+<ol style="list-style-type: decimal">
+<li>First, we would like to graph the the number of areas in each level of protection. To do this, we will have to count the number of areas in each level of protection by running this code in the <code>Console</code></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-do-the-analysis-in-r.html#cb15-1"></a>data2 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">n</span>())</span></code></pre></div>
+<p>Now we delete the rows that has <code>NAs</code> by running this</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1"></a>data2 &lt;-<span class="st"> </span>data2[<span class="op">-</span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>), ] </span></code></pre></div>
+<p>Now we can use a barplot to show the number of areas under each level of protection. The following code is able to do this</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-do-the-analysis-in-r.html#cb17-1"></a><span class="kw">barplot</span>(data2<span class="op">$</span><span class="st">`</span><span class="dt">n()</span><span class="st">`</span>, <span class="dt">ylab=</span><span class="st">&quot;number(No. of areas)&quot;</span>,</span>
+<span id="cb17-2"><a href="how-to-do-the-analysis-in-r.html#cb17-2"></a>        <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>), <span class="dt">las=</span><span class="dv">3</span>, <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="walktwoods_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
 <li>Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset and summing the <code>REP_AREA</code> accordingly. Let’s run this code in the <code>Console</code></li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-do-the-analysis-in-r.html#cb15-1"></a>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">REP_AREA =</span> <span class="kw">sum</span>(REP_AREA))</span></code></pre></div>
-<ol start="12" style="list-style-type: decimal">
-<li>We also calculate the number of areas under each level of protection by running the following code in the <code>Console</code></li>
-</ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1"></a>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="how-to-do-the-analysis-in-r.html#cb18-1"></a>data3 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">REP_AREA =</span> <span class="kw">sum</span>(REP_AREA))</span></code></pre></div>
+<p>The barplot showing the area allocations could be plotted by running this code in the <code>Console</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-do-the-analysis-in-r.html#cb19-1"></a><span class="kw">barplot</span>(data3<span class="op">$</span>REP_AREA, <span class="dt">ylab=</span><span class="st">&quot;Area(Amt. land and water area/km^2)&quot;</span>,</span>
+<span id="cb19-2"><a href="how-to-do-the-analysis-in-r.html#cb19-2"></a>        <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NR&quot;</span> ,<span class="st">&quot;V&quot;</span>, <span class="st">&quot;VI&quot;</span>), <span class="dt">las=</span><span class="dv">3</span>, <span class="dt">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="walktwoods_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 
 </div>
 </div>
