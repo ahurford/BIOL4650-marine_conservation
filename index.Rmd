@@ -144,7 +144,7 @@ data3 <- data1 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
 The barplot showing the area allocations could be plotted by running this code in the `Console`
 
 ```{r, results=F}
-barplot(data3$REP_AREA, ylab="Area(Amt. land and water area/km^2)",
+barplot(data3$REP_AREA, ylab="Area(Amt. land and water/km^2)",
         names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=3, main="Area of land and water for each level of protection")
 ``` 
 
