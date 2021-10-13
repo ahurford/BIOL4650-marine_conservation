@@ -41,7 +41,7 @@ If your data has not loaded, the most likely problem is a spelling error or prob
 
 5.  After importing the data into R, read through the metadata file that is downloaded as a pdf file along with the `.csv` file to better understand the data.
 
-> **Data can be found here**
+> **Data and metadata can be found here**
 
 > <https://www.protectedplanet.net/en/search-areas?geo_type=site>
 
