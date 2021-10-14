@@ -156,3 +156,6 @@ barplot(data3$REP_AREA, ylab="Area(Amt. land and water/km^2)",
 ``` 
 
 
+
+<!--chapter:end:index.Rmd-->
+
