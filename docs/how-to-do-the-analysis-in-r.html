@@ -133,8 +133,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html"><i class="fa fa-check"></i>How to do the analysis in R</a><ul>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i>Data importation and Filtering</a></li>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#graphing"><i class="fa fa-check"></i>Graphing</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i>Data importation and filtering</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#naming-a-subsetted-dataframe"><i class="fa fa-check"></i>Naming a subsetted dataframe</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#graphing-the-data"><i class="fa fa-check"></i>Graphing the data</a></li>
 </ul></li>
 </ul>
 
@@ -156,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="how-to-do-the-analysis-in-r" class="section level1 unnumbered">
 <h1>How to do the analysis in R</h1>
 <div id="data-importation-and-filtering" class="section level2 unnumbered">
-<h2>Data importation and Filtering</h2>
+<h2>Data importation and filtering</h2>
 <p>Let’s explore the <em>protected areas</em> data!</p>
 <ol style="list-style-type: decimal">
 <li><p>It is best to make a folder on your computer Desktop where you will work on this assignment (if needed, review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">Best Practices</a>).</p></li>
@@ -254,38 +255,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We want to separate protected areas identified as exclusively terrestrial from those that include marine areas. Try this in the <code>Console</code>:</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-do-the-analysis-in-r.html#cb10-1"></a><span class="kw">filter</span>(data1, MARINE <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
-<ol start="9" style="list-style-type: decimal">
-<li>To filter data that include marine areas, we run this code in the <code>Console</code>:</li>
+</div>
+<div id="naming-a-subsetted-dataframe" class="section level2 unnumbered">
+<h2>Naming a subsetted dataframe</h2>
+<p>This section is focused on subsetting the entire dataset which was named as <code>data1</code> and saving it with a new name called <code>data2</code>.</p>
+<ol style="list-style-type: decimal">
+<li>We want to filter the data to include marine areas and exclude terrestrial areas and save it as <code>data2</code>. Let’s run this code in the <code>Console</code>:</li>
 </ol>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="how-to-do-the-analysis-in-r.html#cb11-1"></a>data2 &lt;-<span class="st"> </span><span class="kw">filter</span>(data1, MARINE <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
-<ol start="10" style="list-style-type: decimal">
+<ol start="2" style="list-style-type: decimal">
 <li>We want to compute the average size of coastal MPAs. Before we doing this, we will need to filter the data to remove rows with null values in the <code>REP_AREA</code> column. Try this code in the <code>Console</code></li>
 </ol>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-do-the-analysis-in-r.html#cb12-1"></a>data2 &lt;-<span class="st"> </span><span class="kw">filter</span>(data2, <span class="op">!</span><span class="kw">is.na</span>(REP_AREA))</span></code></pre></div>
-<p>Now we can calculate the average size of the coastal MPAs. Let’s run this code:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now we can calculate the average size of the coastal MPAs. Let’s run this code:</li>
+</ol>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-do-the-analysis-in-r.html#cb13-1"></a><span class="kw">mean</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
-<p>The median size of the coastal MPAs can lso be found by running a similar code as follows:</p>
+<ol start="4" style="list-style-type: decimal">
+<li>The median size of the coastal MPAs can also be found by running a similar code as follows:</li>
+</ol>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-do-the-analysis-in-r.html#cb14-1"></a><span class="kw">median</span>(data2<span class="op">$</span>REP_AREA)</span></code></pre></div>
 </div>
-<div id="graphing" class="section level2 unnumbered">
-<h2>Graphing</h2>
+<div id="graphing-the-data" class="section level2 unnumbered">
+<h2>Graphing the data</h2>
 <p>This section will give a brief overview of how to use graphs to understand some key concepts from the data which would be difficult to understand by just studying the raw data.</p>
 <ol style="list-style-type: decimal">
-<li>First, we would like to graph the the number of areas in each level of protection. To do this, we will have to count the number of areas in each level of protection by running this code in the <code>Console</code></li>
+<li>First, we would like to graph the the number of areas in each level of protection. To do this, we will have to group the data according to the level of protection and count the number of areas in each level of protection and saving it as <code>data3</code>. Let’s do it by running this code in the <code>Console</code></li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-do-the-analysis-in-r.html#cb15-1"></a>data2 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-do-the-analysis-in-r.html#cb15-1"></a>data3 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span></code></pre></div>
 <p>Now we delete the rows that has <code>NAs</code> by running this</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1"></a>data2 &lt;-<span class="st"> </span>data2[<span class="op">-</span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>), ] </span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1"></a>data3 &lt;-<span class="st"> </span>data3[<span class="op">-</span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>), ] </span></code></pre></div>
 <p>Now we can use a barplot to show the number of areas under each level of protection. The following code is able to do this</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-do-the-analysis-in-r.html#cb17-1"></a><span class="kw">barplot</span>(data2<span class="op">$</span><span class="st">`</span><span class="dt">n()</span><span class="st">`</span>, <span class="dt">ylab=</span><span class="st">&quot;number(No. of areas)&quot;</span>,</span>
-<span id="cb17-2"><a href="how-to-do-the-analysis-in-r.html#cb17-2"></a>        <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>), <span class="dt">las=</span><span class="dv">3</span>, <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-do-the-analysis-in-r.html#cb17-1"></a><span class="kw">barplot</span>(data3<span class="op">$</span>n, <span class="dt">ylab=</span><span class="st">&quot;Number of areas&quot;</span>,</span>
+<span id="cb17-2"><a href="how-to-do-the-analysis-in-r.html#cb17-2"></a>        <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
 <p><img src="walktwoods_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset and summing the <code>REP_AREA</code> accordingly. Let’s run this code in the <code>Console</code></li>
+<li>Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset and summing the <code>REP_AREA</code> accordingly and naming the resulting data as <code>data4</code>. Let’s run this code in the <code>Console</code></li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="how-to-do-the-analysis-in-r.html#cb18-1"></a>data3 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">REP_AREA =</span> <span class="kw">sum</span>(REP_AREA))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="how-to-do-the-analysis-in-r.html#cb18-1"></a>data4 &lt;-<span class="st"> </span>data1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">REP_AREA =</span> <span class="kw">sum</span>(REP_AREA))</span></code></pre></div>
 <p>The barplot showing the area allocations could be plotted by running this code in the <code>Console</code></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-do-the-analysis-in-r.html#cb19-1"></a><span class="kw">barplot</span>(data3<span class="op">$</span>REP_AREA, <span class="dt">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-do-the-analysis-in-r.html#cb19-1"></a><span class="kw">barplot</span>(data4<span class="op">$</span>REP_AREA, <span class="dt">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
 <span id="cb19-2"><a href="how-to-do-the-analysis-in-r.html#cb19-2"></a>        <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NR&quot;</span> ,<span class="st">&quot;V&quot;</span>, <span class="st">&quot;VI&quot;</span>), <span class="dt">las=</span><span class="dv">3</span>, <span class="dt">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
 <p><img src="walktwoods_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 

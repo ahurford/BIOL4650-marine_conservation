@@ -13,7 +13,7 @@ If you have not used `R` previously, we recommend that you work through Chapters
 
 # How to do the analysis in R {-}
 
-## Data importation and Filtering {-}
+## Data importation and filtering {-}
 
 Let's explore the _protected areas_ data!
 
@@ -91,68 +91,64 @@ Note that the output of `select(data1, MARINE)` is a data frame.
 ```{r, results=F}
 filter(data1, MARINE == 0)
 ```
+## Naming a subsetted dataframe {-}
+This section is focused on subsetting the entire dataset which was named as `data1` and saving it with a new name called `data2`.
 
-9. To filter data that include marine areas, we run this code in the `Console`:
+1. We want to filter the data to include marine areas and exclude terrestrial areas and save it as `data2`. Let's run this code in the `Console`:
 
 ```{r, results=F}
 data2 <- filter(data1, MARINE != 0)
 ```
 
-10. We want to compute the average size of coastal MPAs. Before we doing this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
+2. We want to compute the average size of coastal MPAs. Before we doing this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
 
 ```{r, results=F}
 data2 <- filter(data2, !is.na(REP_AREA))
 ```
 
-Now we can calculate the average size of the coastal MPAs. Let's run this code:
+3. Now we can calculate the average size of the coastal MPAs. Let's run this code:
 
 ```{r, results=F}
 mean(data2$REP_AREA)
 ```
 
-The median size of the coastal MPAs can lso be found by running a similar code as follows:
+4. The median size of the coastal MPAs can also be found by running a similar code as follows:
 ```{r, results=F}
 median(data2$REP_AREA)
 ```
 
-## Graphing {-}
+## Graphing the data{-}
 
 This section will give a brief overview of how to use graphs to understand some key concepts from the data which would be difficult to understand by just studying the raw data.
 
-1. First, we would like to graph the the number of areas in each level of protection. To do this, we will have to count the number of areas in each level of protection by running this code in the `Console` 
-```{r, results=F}
-data2 <- data1 %>% group_by(IUCN_CAT) %>% summarise(n())
-```
-
-We could also attain the same results by using the `group_by` and `tally` functions. I will demonstrate this in the next line
+1. First, we would like to graph the the number of areas in each level of protection. To do this, we will have to group the data according to the level of protection and count the number of areas in each level of protection and saving it as `data3`. Let's do it by running this code in the `Console` 
 
 ```{r, results=F}
-data2 <- group_by(df1, IUCN_CAT)
-tally(data2)
+data3 <- data1 %>% group_by(IUCN_CAT) %>% tally()
 ```
 
 Now we delete the rows that has `NAs` by running this
 
 ```{r, results=F}
-data2 <- data2[-c(6, 7, 8), ] 
+data3 <- data3[-c(6, 7, 8), ] 
 ```
 Now we can use a barplot to show the number of areas under each level of protection. The following code is able to do this
 
 ```{r, results=F}
-barplot(data2$`n()`, ylab="number(No. of areas)",
-        names.arg=c("Ia","Ib","II","III","IV","V","VI"), las=2, main="Number of areas for each level of protection")
+barplot(data3$n, ylab="Number of areas",
+        names.arg=c("Ia","Ib","II","III","IV","V","VI"), las=1, main="Number of areas for each level of protection")
 ```
 
-2. Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the `IUCN_CAT` column of the dataset and summing the `REP_AREA` accordingly. Let's run this code in the `Console`
+2. Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the `IUCN_CAT` column of the dataset and summing the `REP_AREA` accordingly and naming the resulting data as `data4`. Let's run this code in the `Console`
 ```{r, results=F}
-data3 <- data1 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
+data4 <- data1 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
 ```
 
 The barplot showing the area allocations could be plotted by running this code in the `Console`
 
 ```{r, results=F}
-barplot(data3$REP_AREA, ylab="Area(Amt. land and water/km^2)",
-        names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=2, main="Area of land and water for each level of protection")
+barplot(data4$REP_AREA, ylab="Area(Amt. land and water/km^2)",
+        names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=3, main="Area of land and water for each level of protection")
 ``` 
 
 
