@@ -92,9 +92,9 @@ Note that the output of `select(data1, MARINE)` is a data frame.
 filter(data1, MARINE == 0)
 ```
 ## Naming a subsetted dataframe {-}
-This section is focused on subsetting the entire dataset which was named as `data1` and saving it with a new name called `data2`.
+This section is focused on subsetting the dataset which was named as `data1` and creating a new object to hold the processed data. We call this `data2`.
 
-1. We want to filter the data to include marine areas and exclude terrestrial areas and save it as `data2`. Let's run this code in the `Console`:
+1. We want to filter the data to include marine areas and exclude terrestrial areas and hold it as `data2`. Let's run this code in the `Console`:
 
 ```{r, results=F}
 data2 <- filter(data1, MARINE != 0)
