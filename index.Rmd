@@ -15,13 +15,13 @@ If you have not used `R` previously, we recommend that you work through Chapters
 
 ## Data importation and filtering {-}
 
-Let's explore the _protected areas_ data!
+Let's explore the _protected areas_ data from the World Database on Protected Areas.
 
 1.  It is best to make a folder on your computer Desktop where you will work on this assignment (if needed, review [Best Practices](https://ahurford.github.io/quant-guide-all-courses/style.html)).
 
 2.  Download the `.csv` file spreadsheet for protected areas in the country you are studying from the _World Database on Protected Areas_ to the folder you made. You may rename the `.csv` file you downloaded eg. `protected_areas.csv`
 
-3.  [Open and save a new R Script](https://ahurford.github.io/quant-guide-all-courses/rstudio.html#source-pane%5D) your folder. One of the first commands of your R Script will be to [load your data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). For example:
+3.  [Open and save a new R Script](https://ahurford.github.io/quant-guide-all-courses/rstudio.html#source-pane%5D) in your folder. One of the first commands of your R Script will be to [load your data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). For example:
 
 ```{r}
 data1 <- read.csv(file = "protected_areas.csv")
@@ -54,8 +54,13 @@ head(data1)
 ```{r}
 names(data1)
 ```
+7. You could also use the `summary()` function to run a quick statistical summary of the data frame, calculating mean, median and quartile values for continuous variables. Try this in the `Console`
 
-7. To extract a column of the data, see [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html). You may use either Approach 1: base R or Approach 2: `dplyr` (generally, the `dplyr` commands tend to be simpler, however, it is good to also know the base R commands).
+```{r}
+summary(data1)
+```
+
+8. To extract a column of the data, see [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html). You may use either Approach 1: base R or Approach 2: `dplyr` (generally, the `dplyr` commands tend to be simpler, however, it is good to also know the base R commands).
 
 **Approach 1: Base R**
 
@@ -86,12 +91,12 @@ select(data1, MARINE)
 
 Note that the output of `select(data1, MARINE)` is a data frame.
 
-8.  We want to separate protected areas identified as exclusively terrestrial from those that include marine areas. Try this in the `Console`:
+9.  We want to separate protected areas identified as exclusively terrestrial from those that include marine areas. Try this in the `Console`:
 
 ```{r, results=F}
 filter(data1, MARINE == 0)
 ```
-## Naming a subsetted dataframe {-}
+## Creating a new object {-}
 This section is focused on subsetting the dataset which was named as `data1` and creating a new object to hold the processed data. We call this `data2`.
 
 1. We want to filter the data to include marine areas and exclude terrestrial areas and hold it as `data2`. Let's run this code in the `Console`:
@@ -100,7 +105,7 @@ This section is focused on subsetting the dataset which was named as `data1` and
 data2 <- filter(data1, MARINE != 0)
 ```
 
-2. We want to compute the average size of coastal MPAs. Before we doing this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
+2. We want to compute the average size of coastal MPAs. Before we do this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
 
 ```{r, results=F}
 data2 <- filter(data2, !is.na(REP_AREA))
@@ -135,8 +140,7 @@ data3 <- data3[-c(6, 7, 8), ]
 Now we can use a barplot to show the number of areas under each level of protection. The following code is able to do this
 
 ```{r, results=F}
-barplot(data3$n, ylab="Number of areas",
-        names.arg=c("Ia","Ib","II","III","IV","V","VI"), las=1, main="Number of areas for each level of protection")
+barplot(data3$n,  xlab = "Level of protection", ylab="Number of areas", names.arg=c("Ia","Ib","II","III","IV","V","VI"), las=1, main="Number of areas for each level of protection")
 ```
 
 2. Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the `IUCN_CAT` column of the dataset and summing the `REP_AREA` accordingly and naming the resulting data as `data4`. Let's run this code in the `Console`
@@ -147,8 +151,7 @@ data4 <- data1 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
 The barplot showing the area allocations could be plotted by running this code in the `Console`
 
 ```{r, results=F}
-barplot(data4$REP_AREA, ylab="Area(Amt. land and water/km^2)",
-        names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=3, main="Area of land and water for each level of protection")
+barplot(data4$REP_AREA, xlab = "Level of protection", ylab="Area(Amt. land and water/km^2)", names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=3, main="Area of land and water for each level of protection")
 ``` 
 
 
