@@ -154,4 +154,21 @@ The barplot showing the area allocations could be plotted by running this code i
 barplot(data4$REP_AREA, xlab = "Level of protection", ylab="Area(Amt. land and water/km^2)", names.arg=c("Ia","Ib","II","III","IV", "NA", "NA","NR" ,"V", "VI"), las=3, main="Area of land and water for each level of protection")
 ``` 
 
+3. We would like to construct a histogram to graph the size-frequency distribution. The nature of the data, would require that we use a log-scale histogram to be able to view the frequency of each bin we create for the size.  The following `code` divide the sizes into bins and create a barplot that shows the frequency for each size range. s
+
+```{r}
+bins <- c(0, 250000, 500000, 750000, 1000000, 1250000, 1500000, 1750000, 2000000)
+marine_hist <- hist(data2$REP_AREA, breaks=bins, plot=FALSE)
+barplt <- barplot(marine_hist$count, log="y", 
+              names.arg=c(250000, 500000, 750000, 1000000, 1250000, 1500000, 1750000, 2000000),
+              xlab = "Size of MPAs",
+              ylab = "log of the frequency (log(y))",
+              main = "Graph showing the size-frequency distribution of MPAs",
+              las=1)
+text(barplt, marine_hist$counts, labels=marine_hist$counts, pos=1)
+```
+
+
+
+
 
