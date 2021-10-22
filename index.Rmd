@@ -163,7 +163,7 @@ barplt <- barplot(marine_hist$count, log="y",
               names.arg=c(250000, 500000, 750000, 1000000, 1250000, 1500000, 1750000, 2000000),
               xlab = "Size of MPAs",
               ylab = "log of the frequency (log(y))",
-              main = "Graph showing the size-frequency distribution of MPAs",
+              main = "The size-frequency distribution of MPAs",
               las=1)
 text(barplt, marine_hist$counts, labels=marine_hist$counts, pos=1)
 ```
