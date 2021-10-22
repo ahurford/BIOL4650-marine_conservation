@@ -168,7 +168,7 @@ barplt <- barplot(marine_hist$count, log="y",
 text(barplt, marine_hist$counts, labels=marine_hist$counts, pos=1)
 ```
 
-
+4. Using the `group_by` function, 
 
 
 
