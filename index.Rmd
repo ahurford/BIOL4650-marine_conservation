@@ -129,7 +129,7 @@ This section will give a brief overview of how to use graphs to understand some 
 1. First, we would like to graph the the number of areas in each level of protection. To do this, we will have to group the data according to the level of protection and count the number of areas in each level of protection and saving it as `data3`. Let's do it by running this code in the `Console` 
 
 ```{r, results=F}
-data3 <- data1 %>% group_by(IUCN_CAT) %>% tally()
+data3 <- data2 %>% group_by(IUCN_CAT) %>% tally()
 ```
 
 Now we delete the rows that has `NAs` by running this
@@ -145,7 +145,7 @@ barplot(data3$n,  xlab = "Level of protection", ylab="Number of areas", names.ar
 
 2. Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the `IUCN_CAT` column of the dataset and summing the `REP_AREA` accordingly and naming the resulting data as `data4`. Let's run this code in the `Console`
 ```{r, results=F}
-data4 <- data1 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
+data4 <- data2 %>% group_by(IUCN_CAT) %>% summarise(REP_AREA = sum(REP_AREA))
 ```
 
 The barplot showing the area allocations could be plotted by running this code in the `Console`
@@ -167,8 +167,6 @@ barplt <- barplot(marine_hist$count, log="y",
               las=1)
 text(barplt, marine_hist$counts, labels=marine_hist$counts, pos=1)
 ```
-
-4. Using the `group_by` function, 
 
 
 
