@@ -444,8 +444,8 @@ You can read more on <a href="https://ahurford.github.io/quant-guide-all-courses
 <ol start="3" style="list-style-type: decimal">
 <li>We would like to construct a histogram to graph the size-frequency distribution.</li>
 </ol>
-<p><strong>Approach 1: </strong>
-First, we will construct a histogram without logarithm scale with the <em>base R</em> function <code>hist</code>.</p>
+<p><strong>Approach 1: base R</strong></p>
+<p>First, we will construct a histogram without logarithm scale with the <em>base R</em> function <code>hist</code>.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-do-the-analysis-in-r.html#cb23-1"></a><span class="kw">hist</span>(data2<span class="op">$</span>GIS_M_AREA, <span class="dt">breaks =</span> <span class="dv">50</span>,</span>
 <span id="cb23-2"><a href="how-to-do-the-analysis-in-r.html#cb23-2"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Size of MPAs&quot;</span>,</span>
 <span id="cb23-3"><a href="how-to-do-the-analysis-in-r.html#cb23-3"></a>     <span class="dt">ylab=</span><span class="st">&quot;Frequency&quot;</span>,</span>
@@ -454,8 +454,7 @@ First, we will construct a histogram without logarithm scale with the <em>base R
 <p>Next, we want to plot a logarithm scale histogram</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="how-to-do-the-analysis-in-r.html#cb24-1"></a><span class="kw">hist</span>(<span class="kw">log</span>(data2<span class="op">$</span>GIS_M_AREA), <span class="dt">breaks =</span> <span class="dv">50</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
 <p><img src="walktwoods_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p><strong>Approach 2:</strong>
-Using <em>ggplot2</em> package</p>
+<p><strong>Approach 2: ggplot2</strong></p>
 <p>Install <em>ggplot2</em> package using the <code>install.packages()</code> and Load the <em>ggplot2</em> package using the <code>library()</code>. We plot a histogram with logarithmic axis by running the code below:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="how-to-do-the-analysis-in-r.html#cb25-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="how-to-do-the-analysis-in-r.html#cb26-1"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="kw">log</span>(data2<span class="op">$</span>GIS_M_AREA)), <span class="kw">aes</span>(<span class="kw">log</span>(data2<span class="op">$</span>GIS_M_AREA))) <span class="op">+</span><span class="st"> </span></span>
