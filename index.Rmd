@@ -174,7 +174,9 @@ barplot(data4$AREA_SUM,
 
 3. We would like to construct a histogram to graph the size-frequency distribution. 
 
-**Approach 1: **
+**Approach 1: base R**
+
+
 First, we will construct a histogram without logarithm scale with the _base R_ function `hist`.
 
 ```{r}
@@ -190,8 +192,8 @@ Next, we want to plot a logarithm scale histogram
 hist(log(data2$GIS_M_AREA), breaks = 50)   # Histogram with logarithmic axis
 ```
 
-**Approach 2:**
-Using _ggplot2_ package
+**Approach 2: ggplot2**
+
 
 Install _ggplot2_ package using the `install.packages()` and Load the _ggplot2_ package using the `library()`. We plot a histogram with logarithmic axis by running the code below:
 
