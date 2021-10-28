@@ -23,21 +23,15 @@ Let's explore the _protected areas_ data from the World Database on Protected Ar
 
 3.  [Open and save a new R Script](https://ahurford.github.io/quant-guide-all-courses/rstudio.html#source-pane%5D) in your folder. One of the first commands of your R Script will be to [load your data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). For example:
 
-```{r,results=FALSE}
+```{r}
 data1 <- read.csv(file = "protected_areas.csv")
 ```
-
-When writing your R script you need to learn about using your `Console` versus writing your R Script in the Source pane. Please read the section [Finding your way around R Studio](https://ahurford.github.io/quant-guide-all-courses/rstudio.html) if this is unfamiliar.
-
-When you find a command that is helpful, you should put it in your R Script. Note that the order of the commands is important. If you just want to test out a command, then use your `Console`. After you find a command that works (by testing in the `Console`), you might want to add it to your R Script. To run all the commands in your R Script (line by line) you use the `Source` button (or find Source from the Code menu), or you highlight the lines to run and use the `Run` button.
 
 4.  In the [Console](https://ahurford.github.io/quant-guide-all-courses/rstudio.html#console-pane), inspect your data to check that it has loaded. For example:
 
 ```{r, results=FALSE}
 head(data1)
 ```
-
-We put this command in the `Console` because it is just to check that the data loaded correctly. It isn't necesssary to have this command in our R Script, however, the `read.csv()` command from above is essential, so you definitely want that one amongst the first few lines of your R Script.
 
 If your data has not loaded, the most likely problem is a spelling error or problems with specifying the [path](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory) to `protected_areas.csv`. You might try:
 
@@ -51,23 +45,29 @@ If your data has not loaded, the most likely problem is a spelling error or prob
 
 > <https://www.protectedplanet.net/en/search-areas?geo_type=site>
 
-6.  You will want to do some exploration of your data. See [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html) for how to recover the names of the columns for all the data.
+6. We can run the following lines of code to have and understanding of what constitute the data by looking at the first six rows and the last six rows of the data.
+
+```{r}
+head(data1)
+```
+
+```{r}
+tail(data1)
+```
+
+7.  You will want to do some exploration of your data. See [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html) for how to recover the names of the columns for all the data.
 
 ```{r}
 names(data1)
 ```
 
-Note that `names(data1)` is a good command to run in the `Console` because we want to know the column names so that we can extract the correct column later: `names(data1)` would be run in the `Console` because it is a query rather than an essential part of the analysis.
+8. You could also use the `summary()` function to run a quick statistical summary of the data frame, calculating mean, median and quartile values for continuous variables. Try this in the `Console`
 
-7. You could also use the `summary()` function to run a quick statistical summary of the data frame, calculating mean, median and quartile values for continuous variables. Try this in the `Console`:
-
-```{r,results=FALSE}
+```{r}
 summary(data1)
 ```
 
-Again, `summary(data1)` is a query - to check that our data looks okay, so we opt to run it in the `Console` rather than adding it to our R Script.
-
-8. To extract a column of the data, see [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html). You may use either Approach 1: base R or Approach 2: `dplyr` (generally, the `dplyr` commands tend to be simpler, however, it is good to also know the base R commands).
+9. To extract a column of the data, see [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html). You may use either Approach 1: base R or Approach 2: `dplyr` (generally, the `dplyr` commands tend to be simpler, however, it is good to also know the base R commands).
 
 **Approach 1: Base R**
 
@@ -80,59 +80,39 @@ data1$MARINE
 Be sure to type exactly `MARINE` after the `$`.
 
 
-You need to write the column name exactly as it appears in the output of `names(data1)` or RStudio will produce an error. Remember `MARINE` is capitalized in the data frame so be careful not to type `Marine` which will come out as an error. 
+You need to write the column name exactly as it appear in the output of `names(data1)` or RStudio will produce an error. Remember `MARINE` is captalized in the data frame so be careful not to type `Marine` which will come out as an error. 
 
 **Approach 2: dplyr**
 
-If you have not installed the `dplyr` package you will need to install it. Please read [install](https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages). 
-
-Once it is installed, to use the [`dplyr` functions](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#dplyr) you need to load the package:
+To use the [`dplyr` functions](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#dplyr) you need to load the package (and [install](https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages) if you have not already done so):
 
 ```{r,message=F}
 library(dplyr)
 ```
 
-Now we select the `MARINE` column, with the command:
+Now we select the `MARINE` column, by typing in the `source pane` and running the code below:
 
 ```{r, results = F}
 select(data1, MARINE)
 ```
 
-The output of `select(data1, MARINE)` is a data frame because the variable has an associated name. This is different than the base R command approach where the output is a list of numbers (a vector) without an associated name.
+Note that the output of `select(data1, MARINE)` is a data frame.
 
 
 ## Creating a new object {-}
-This section is focused on subsetting the data that was named `data1` and creating a new object to hold the processed data. We will call this `data2`.
+This section is focused on subsetting the dataset which was named as `data1` and creating a new object to hold the processed data. We call this `data2`.
 
-1. We want to filter the data to separate protected areas identified as exclusively terrestrial from those that include marine areas. The new data created will be saved as `data2`. Let's run this code in the `Console`:
+1. We want to filter the data to separate protected areas identified as exclusively terrestrial from those that include marine areas. The new data created will be saved as `data2`. Let's run this code in the `Console` and save it in the `source pane`:
 
 ```{r, results=F}
 data2 <- filter(data1, MARINE != 0)
 ```
 
-In the `MARINE` column `0` indicates that a site is not marine. The new variable `data2` now contains all the rows for the marine sites because `!=0` means the value is not 0, and so therefore the site *is* marine (a double negative!).
-
-Check your output:
-
-```{r, results=F}
-head(data2)
-```
-
-In particular, look at the `MARINE` column. Are there any `0`s left in the `MARINE` column?
-
-2. We want to compute the average size of coastal MPAs. Let's take a look at the value of `GIS_M_AREA` in row 18041:
-
-```{r}
-data2$GIS_M_AREA[18041]
-```
-
-Oh no! The value of the column `GIS_M_AREA` for this row of data is `NA`. This means that no value was recorded. This will ruin our calculation of the average so we need to remove these `NA` values from the `GIS_M_AREA` column. Here is the command to remove the `NA`s.
+2. We want to compute the average size of coastal MPAs. Before we do this, we will need to filter the data to remove rows with null values in the `REP_AREA` column. Try this code in the `Console`
 
 ```{r, results=F}
 data2 <- filter(data2, !is.na(GIS_M_AREA))
 ```
-
-The command states to keep only the rows of `data2` that are *not* `NA`.
 
 3. Now we can calculate the average size of the coastal MPAs. Let's run this code:
 
@@ -233,4 +213,7 @@ ggplot(data.frame(data2$GIS_M_AREA), aes(data2$GIS_M_AREA)) +
 geom_histogram(color = "blue", fill = "green", bins = 50) +
 scale_x_log10()
 ```
+
+
+<!--chapter:end:index.Rmd-->
 
