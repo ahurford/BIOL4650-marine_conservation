@@ -131,19 +131,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-hand-in"><i class="fa fa-check"></i>To hand-in</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html"><i class="fa fa-check"></i>How to do the analysis in R</a>
 <ul>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i>Data importation and filtering</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#creating-a-new-object"><i class="fa fa-check"></i>Creating a new object</a></li>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#graphing-the-data"><i class="fa fa-check"></i>Graphing the data</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#preparing-the-data-for-graphing"><i class="fa fa-check"></i>Preparing the data for graphing</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#making-graphs"><i class="fa fa-check"></i>Making graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started-and-learning-r-1.html"><a href="getting-started-and-learning-r-1.html"><i class="fa fa-check"></i>Getting started and Learning R</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html"><i class="fa fa-check"></i>How to do the analysis in R</a>
 <ul>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#data-importation-and-filtering-1"><i class="fa fa-check"></i>Data importation and filtering</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#creating-a-new-object-1"><i class="fa fa-check"></i>Creating a new object</a></li>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#graphing-the-data-1"><i class="fa fa-check"></i>Graphing the data</a></li>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#graphing-the-data"><i class="fa fa-check"></i>Graphing the data</a></li>
 </ul></li>
 </ul>
 
@@ -174,12 +178,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="how-to-do-the-analysis-in-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;protected_areas.csv&quot;</span>)</span></code></pre></div>
 <p>When writing your R script you need to learn about using your <code>Console</code> versus writing your R Script in the Source pane. Please read the section <a href="https://ahurford.github.io/quant-guide-all-courses/rstudio.html">Finding your way around R Studio</a> if this is unfamiliar.</p>
-<p>When you find a command that is helpful, you should put it in your R Script. Note that the order of the commands is important. If you just want to test out a command, then use your <code>Console</code>. After you find a command that works (by testing in the <code>Console</code>), you might want to add it to your R Script. To run all the commands in your R Script (line by line) you use the <code>Source</code> button (or find Source from the Code menu), or you highlight the lines to run and use the <code>Run</code> button.</p>
+<p>When you find a command that is essential to your analysis, you should put it in your R Script. Note that the order of the commands is important: the will run top to bottom. If you just want to test out a command, then use your <code>Console</code>. After you find a command that works (by testing in the <code>Console</code>), you might want to add it to your R Script. To run all the commands in your R Script (line by line) you use the <code>Source</code> button (or find Source from the Code menu), or you highlight the lines to run and use the <code>Run</code> button.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>In the <a href="https://ahurford.github.io/quant-guide-all-courses/rstudio.html#console-pane">Console</a>, inspect your data to check that it has loaded. For example:</li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="how-to-do-the-analysis-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data1)</span></code></pre></div>
-<p>We put this command in the <code>Console</code> because it is just to check that the data loaded correctly. It isn’t necesssary to have this command in our R Script, however, the <code>read.csv()</code> command from above is essential, so you definitely want that one amongst the first few lines of your R Script.</p>
+<p>We put this command in the <code>Console</code> because it is just to check that the data loaded correctly. It isn’t necesssary to have this command in our R Script, however, the <code>read.csv()</code> command from above is essential, so you definitely want that one amongst the first few lines of your R Script. After you add a few lines to your R Script, you will want to periodically run your whole R script to make sure it is working as you expect.</p>
 <p>If your data has not loaded, the most likely problem is a spelling error or problems with specifying the <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">path</a> to <code>protected_areas.csv</code>. You might try:</p>
 <ul>
 <li><p>the <a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#the-rstudio-way-the-import-feature">RStudio way</a> of importing your data, or</p></li>
@@ -212,20 +216,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="how-to-do-the-analysis-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data1)</span></code></pre></div>
 <p>Again, <code>summary(data1)</code> is a query - to check that our data looks okay, so we opt to run it in the <code>Console</code> rather than adding it to our R Script.</p>
 <ol start="8" style="list-style-type: decimal">
-<li>To extract a column of the data, see <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling the data</a>. You may use either Approach 1: base R or Approach 2: <code>dplyr</code> (generally, the <code>dplyr</code> commands tend to be simpler, however, it is good to also know the base R commands).</li>
+<li>To extract a column of the data, see <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling the data</a>. You may use either Approach 1: <code>dplyr</code> or Approach 2: base R. Generally, the <code>dplyr</code> commands tend to be simpler, however, it is good to also know the base R commands. You need only choose 1 approach. We recommend Approach 1: <code>dplyr</code>, unless you have prior experience with base R and prefer to do the analysis that way.</li>
 </ol>
-<p><strong>Approach 1: Base R</strong></p>
-<p>To view the <code>MARINE</code>, column of the data in the <code>Console</code>, try:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-do-the-analysis-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>MARINE</span></code></pre></div>
-<p>Be sure to type exactly <code>MARINE</code> after the <code>$</code>.</p>
-<p>You need to write the column name exactly as it appears in the output of <code>names(data1)</code> or RStudio will produce an error. Remember <code>MARINE</code> is capitalized in the data frame so be careful not to type <code>Marine</code> which will come out as an error.</p>
-<p><strong>Approach 2: dplyr</strong></p>
+<p><strong>Approach 1: dplyr</strong></p>
 <p>If you have not installed the <code>dplyr</code> package you will need to install it. Please read <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages">install</a>.</p>
 <p>Once it is installed, to use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#dplyr"><code>dplyr</code> functions</a> you need to load the package:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="how-to-do-the-analysis-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-do-the-analysis-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>This command is essential, and generally we would put it as one of the first commands in our R Script.</p>
 <p>Now we select the <code>MARINE</code> column, with the command:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="how-to-do-the-analysis-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(data1, MARINE)</span></code></pre></div>
-<p>The output of <code>select(data1, MARINE)</code> is a data frame because the variable has an associated name. This is different than the base R command approach where the output is a list of numbers (a vector) without an associated name.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="how-to-do-the-analysis-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(data1, MARINE)</span></code></pre></div>
+<p>The output of <code>select(data1, MARINE)</code> is a data frame because the variable has an associated name.</p>
+<p><strong>Approach 2: Base R</strong></p>
+<p>To view the <code>MARINE</code>, column of the data in the <code>Console</code>, try:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="how-to-do-the-analysis-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>data1<span class="sc">$</span>MARINE</span></code></pre></div>
+<p>Be sure to type exactly <code>MARINE</code> after the <code>$</code>.</p>
+<p>You need to write the column name exactly as it appears in the output of <code>names(data1)</code> or RStudio will produce an error. Remember <code>MARINE</code> is capitalized in the data frame so be careful not to type <code>Marine</code> which will come out as an error.</p>
 </div>
 <div id="creating-a-new-object" class="section level2 unnumbered">
 <h2>Creating a new object</h2>
@@ -233,86 +238,182 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>We want to filter the data to separate protected areas identified as exclusively terrestrial from those that include marine areas. The new data created will be saved as <code>data2</code>. Let’s run this code in the <code>Console</code>:</li>
 </ol>
+<p><strong>Approach 1: dplyr</strong></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="how-to-do-the-analysis-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(data1, MARINE <span class="sc">!=</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><strong>Approach 2: base R</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-do-the-analysis-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data1[data1<span class="sc">$</span>MARINE<span class="sc">!=</span><span class="dv">0</span>,]</span></code></pre></div>
+<p>Note, the comma inside the square brackets indicates to take all columns for the rows where <code>MARINE!=0</code> is <code>TRUE</code>.</p>
+<p><strong>Both approaches</strong></p>
 <p>In the <code>MARINE</code> column <code>0</code> indicates that a site is not marine. The new variable <code>data2</code> now contains all the rows for the marine sites because <code>!=0</code> means the value is not 0, and so therefore the site <em>is</em> marine (a double negative!).</p>
 <p>Check your output:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-do-the-analysis-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2)</span></code></pre></div>
-<p>In particular, look at the <code>MARINE</code> column. Are there any <code>0</code>s left in the <code>MARINE</code> column?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="how-to-do-the-analysis-in-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2)</span>
+<span id="cb11-2"><a href="how-to-do-the-analysis-in-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2<span class="sc">$</span>MARINE)</span></code></pre></div>
+<p>In particular, look at the <code>MARINE</code> column. Are there any <code>0</code>s left in the <code>MARINE</code> column? No? Good, because we want the marine sites, so we do not want any <code>0</code>s in the <code>MARINE</code> column.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>We want to compute the average size of coastal MPAs. Let’s take a look at the value of <code>GIS_M_AREA</code> in row 18041:</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="how-to-do-the-analysis-in-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>data2<span class="sc">$</span>GIS_M_AREA[<span class="dv">18041</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-do-the-analysis-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>data2<span class="sc">$</span>GIS_M_AREA[<span class="dv">18041</span>]</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>Oh no! The value of the column <code>GIS_M_AREA</code> for this row of data is <code>NA</code>. This means that no value was recorded. This will ruin our calculation of the average so we need to remove these <code>NA</code> values from the <code>GIS_M_AREA</code> column. Here is the command to remove the <code>NA</code>s.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-do-the-analysis-in-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(data2, <span class="sc">!</span><span class="fu">is.na</span>(GIS_M_AREA))</span></code></pre></div>
-<p>The command states to keep only the rows of <code>data2</code> that are <em>not</em> <code>NA</code>.</p>
+<p>Oh no! The value of the column <code>GIS_M_AREA</code> for this row of data is <code>NA</code>. This means that no value was recorded. This will ruin our calculation of the average so we need to remove these <code>NA</code> values from the <code>GIS_M_AREA</code> column.</p>
+<p>Which rows are <code>NA</code>s? We can find out like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-do-the-analysis-in-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(data2<span class="sc">$</span>GIS_M_AREA)<span class="sc">==</span><span class="st">&quot;TRUE&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] 17545 17546 17547 17548 17549 17550</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(data2<span class="sc">$</span>GIS_M_AREA)<span class="sc">==</span><span class="st">&quot;TRUE&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] 497</code></pre>
+<p>where <code>head()</code> is used to return only the first 6 rows with NA values so as to not return a lengthy output, and <code>length()</code> is used to tell us there are 497 <code>NA</code> values in the <code>GIS_M_AREA</code> column.</p>
+<p><strong>Approach 1: dyplyr</strong>
+Here is the command to remove the <code>NA</code>s as described in <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#dplyr">Handling the data</a>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="how-to-do-the-analysis-in-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(data2, <span class="sc">!</span><span class="fu">is.na</span>(GIS_M_AREA))</span></code></pre></div>
+<p>The above line of code is more than a query, it is an essential step in the analysis so you will want to add it to the code in your R script in the <code>Source</code> pane.</p>
+<p><strong>Approach 2: base R</strong>
+To remove the <code>NA</code>s</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-do-the-analysis-in-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> data2[<span class="sc">!</span><span class="fu">is.na</span>(data2<span class="sc">$</span>GIS_M_AREA),]</span></code></pre></div>
+<p><strong>Both approaches</strong></p>
+<p>Let’s check that we effectively removed the <code>NA</code>s from the data.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="how-to-do-the-analysis-in-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(data3<span class="sc">$</span>GIS_M_AREA)<span class="sc">==</span><span class="st">&quot;TRUE&quot;</span>))</span>
+<span id="cb20-2"><a href="how-to-do-the-analysis-in-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(data3<span class="sc">$</span>GIS_M_AREA)<span class="sc">==</span><span class="st">&quot;TRUE&quot;</span>))</span></code></pre></div>
+<p>Now we see that <code>data3</code> is a cleaned up version of <code>data2</code> that no longer contains the the <code>NA</code> values in the <code>GIS_M_AREA</code> column because when we use <code>length()</code> to find out how many of the values in <code>data3$GIS_M_AREA</code> are <code>NA</code> and the returned value is 0.</p>
+<p>The commands above are a query so you would run them in the <code>Console</code> to check that your analysis is going to plan, however, you do not need to include this in your R Script.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Now we can calculate the average size of the coastal MPAs. Let’s run this code:</li>
+<li>We can now calculate the average size of the coastal MPAs. Let’s run this code:</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-do-the-analysis-in-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data2<span class="sc">$</span>GIS_M_AREA)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="how-to-do-the-analysis-in-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data3<span class="sc">$</span>GIS_M_AREA)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>The median size of the coastal MPAs can also be found by running a similar code as follows:</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="how-to-do-the-analysis-in-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data2<span class="sc">$</span>GIS_M_AREA)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="how-to-do-the-analysis-in-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data3<span class="sc">$</span>GIS_M_AREA)</span></code></pre></div>
 </div>
-<div id="graphing-the-data" class="section level2 unnumbered">
-<h2>Graphing the data</h2>
-<p>This section will give a brief overview of how to use graphs to understand some key concepts from the data which would be difficult to understand by just studying the raw data.
-You can read more on <a href="https://ahurford.github.io/quant-guide-all-courses/graph.html">Making graphs in R</a></p>
+<div id="preparing-the-data-for-graphing" class="section level2 unnumbered">
+<h2>Preparing the data for graphing</h2>
+<p>Before, we can make the graphs we will need to organize the data we want to graph.</p>
 <ol style="list-style-type: decimal">
-<li>First, we would like to graph the the number of areas in each level of protection. To do this, we will have to group the data according to the level of protection and count the number of areas in each level of protection and saving it as <code>data3</code>. Let’s do it by running this code in the <code>Console</code></li>
+<li>First, we would like to graph the number of areas in each level of protection. To do this, we will have to group the data according to the level of protection and count the number of areas in each level of protection and saving it as <code>data4</code>.</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-do-the-analysis-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="how-to-do-the-analysis-in-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(IUCN_CAT) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="how-to-do-the-analysis-in-r.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
-<p>Now we delete the rows that has <code>NAs</code> by running this</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-do-the-analysis-in-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> data3[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>), ] </span></code></pre></div>
-<p>Now we can use a barplot to show the number of areas under each level of protection. The following code is able to do this</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="how-to-do-the-analysis-in-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(data3<span class="sc">$</span>n,</span>
-<span id="cb18-2"><a href="how-to-do-the-analysis-in-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
-<span id="cb18-3"><a href="how-to-do-the-analysis-in-r.html#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Number of areas&quot;</span>,</span>
-<span id="cb18-4"><a href="how-to-do-the-analysis-in-r.html#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>),</span>
-<span id="cb18-5"><a href="how-to-do-the-analysis-in-r.html#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">1</span>,</span>
-<span id="cb18-6"><a href="how-to-do-the-analysis-in-r.html#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><strong>Approach 1: dplyr</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-do-the-analysis-in-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="how-to-do-the-analysis-in-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(IUCN_CAT) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="how-to-do-the-analysis-in-r.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
+<p><strong>Approch 2: base R</strong></p>
+<p>Joseph add code here</p>
+<p><strong>Both approaches</strong></p>
+<p>Let’s query the result in our <code>Console</code> to see that this worked:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="how-to-do-the-analysis-in-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a>data4</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    IUCN_CAT           n
+##    &lt;chr&gt;          &lt;int&gt;
+##  1 Ia              1539
+##  2 Ib               256
+##  3 II               731
+##  4 III              756
+##  5 IV              4872
+##  6 Not Applicable   191
+##  7 Not Assigned    1113
+##  8 Not Reported    5469
+##  9 V               1638
+## 10 VI               979</code></pre>
+<p>Yikes! Rows 6, 7, and 8 are <code>Not Applicable</code>, <code>Not Assigned</code> and <code>Not Reported</code>. We need to remove these.</p>
+<p>We delete the rows that have <code>NAs</code> by running this:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="how-to-do-the-analysis-in-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> data4[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>), ] </span></code></pre></div>
+<p>Note that the minus sign indicates to remove.</p>
+<p>Our data describing the number of areas in each level of protection is now ready as <code>data4</code>, but let’s clean more data to make another graph before moving on to the graphing section.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>Now we would like to calculate the amount of area that is strongly protected. We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset and summing the <code>GIS_M_AREA</code> accordingly and naming the resulting data as <code>data4</code>. Let’s run this code in the <code>Console</code></li>
+<li>Now we would like to calculate the amount of area that is strongly protected.</li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-do-the-analysis-in-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="how-to-do-the-analysis-in-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(IUCN_CAT) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="how-to-do-the-analysis-in-r.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">AREA_SUM =</span> <span class="fu">sum</span>(GIS_M_AREA))</span></code></pre></div>
-<p>The barplot showing the area allocations could be plotted by running this code in the <code>Console</code></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="how-to-do-the-analysis-in-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(data4<span class="sc">$</span>AREA_SUM,</span>
-<span id="cb20-2"><a href="how-to-do-the-analysis-in-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
-<span id="cb20-3"><a href="how-to-do-the-analysis-in-r.html#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
-<span id="cb20-4"><a href="how-to-do-the-analysis-in-r.html#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NR&quot;</span> ,<span class="st">&quot;V&quot;</span>, <span class="st">&quot;VI&quot;</span>),</span>
-<span id="cb20-5"><a href="how-to-do-the-analysis-in-r.html#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">3</span>,</span>
-<span id="cb20-6"><a href="how-to-do-the-analysis-in-r.html#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<ol start="3" style="list-style-type: decimal">
+<p><strong>Approach 1: dplyr</strong>
+We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset and summing the <code>GIS_M_AREA</code> accordingly and naming the resulting data as <code>data5</code>. Let’s run this code in the <code>Console</code>:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="how-to-do-the-analysis-in-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a>data5 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="how-to-do-the-analysis-in-r.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(IUCN_CAT) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="how-to-do-the-analysis-in-r.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">AREA_SUM =</span> <span class="fu">sum</span>(GIS_M_AREA))</span></code></pre></div>
+<p><strong>Approach 2: base R</strong>
+[Joesph add here]</p>
+<p><strong>Both approaches</strong></p>
+<p>We can check the result by typing, in the Console:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="how-to-do-the-analysis-in-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a>data5</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    IUCN_CAT       AREA_SUM
+##    &lt;chr&gt;             &lt;dbl&gt;
+##  1 Ia             2096610.
+##  2 Ib              390707.
+##  3 II             1038162.
+##  4 III             121394.
+##  5 IV             5188049.
+##  6 Not Applicable 2761553.
+##  7 Not Assigned   1506267.
+##  8 Not Reported   9353197.
+##  9 V              5830637.
+## 10 VI             7708143.</code></pre>
+<p>Note that this time, we would like to leave the categories: <code>Not applicable</code>, <code>Not assigned</code> and <code>Not reported</code> (<strong>Evan is this right???)</strong>. If <code>data5</code> looks good, you will want to add the commands that produced <code>data5</code> to your R script in the Source window.</p>
+</div>
+<div id="making-graphs" class="section level2 unnumbered">
+<h2>Making graphs</h2>
+<p>In this section we will made graphs of <code>data4</code> and <code>data5</code>. You can read more on <a href="https://ahurford.github.io/quant-guide-all-courses/graph.html">Making graphs in R</a>.</p>
+<ol style="list-style-type: decimal">
 <li>We would like to construct a histogram to graph the size-frequency distribution.</li>
 </ol>
-<p><strong>Approach 1: base R</strong></p>
-<p>First, we will construct a histogram without logarithm scale with the <em>base R</em> function <code>hist</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="how-to-do-the-analysis-in-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data2<span class="sc">$</span>GIS_M_AREA, <span class="at">breaks =</span> <span class="dv">50</span>,</span>
-<span id="cb21-2"><a href="how-to-do-the-analysis-in-r.html#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Size of MPAs&quot;</span>,</span>
-<span id="cb21-3"><a href="how-to-do-the-analysis-in-r.html#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Frequency&quot;</span>,</span>
-<span id="cb21-4"><a href="how-to-do-the-analysis-in-r.html#cb21-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>Next, we want to plot a logarithm scale histogram</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="how-to-do-the-analysis-in-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(data2<span class="sc">$</span>GIS_M_AREA), <span class="at">breaks =</span> <span class="dv">50</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p><strong>Approach 2: ggplot2</strong></p>
-<p>Install <em>ggplot2</em> package using the <code>install.packages()</code> and Load the <em>ggplot2</em> package using the <code>library()</code>. We plot a histogram with logarithmic axis by running the code below:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-do-the-analysis-in-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="how-to-do-the-analysis-in-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="fu">log</span>(data2<span class="sc">$</span>GIS_M_AREA)), <span class="fu">aes</span>(<span class="fu">log</span>(data2<span class="sc">$</span>GIS_M_AREA))) <span class="sc">+</span> </span>
-<span id="cb24-2"><a href="how-to-do-the-analysis-in-r.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-<p>We can also plot with the <code>scale_c_log10()</code> function:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="how-to-do-the-analysis-in-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(data2<span class="sc">$</span>GIS_M_AREA), <span class="fu">aes</span>(data2<span class="sc">$</span>GIS_M_AREA)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="how-to-do-the-analysis-in-r.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;green&quot;</span>, <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="how-to-do-the-analysis-in-r.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p>We will construct a histogram without logarithm scale with the function <code>hist()</code>. The data we need to use are <code>data3$GIS_M_AREA</code> which contains the areas of the marine protected areas:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="how-to-do-the-analysis-in-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data3<span class="sc">$</span>GIS_M_AREA, <span class="at">breaks =</span> <span class="dv">50</span>,</span>
+<span id="cb30-2"><a href="how-to-do-the-analysis-in-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Size of MPAs&quot;</span>,</span>
+<span id="cb30-3"><a href="how-to-do-the-analysis-in-r.html#cb30-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb30-4"><a href="how-to-do-the-analysis-in-r.html#cb30-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>We can plot these results on a logarithm scale as:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="how-to-do-the-analysis-in-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA), <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">xlab =</span> <span class="st">&quot;x label here&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;y label here&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>We can use a barplot to show the number of areas under each level of protection from the data contained in <code>data4</code>. Remember that <code>data4</code> has two columns:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-do-the-analysis-in-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>data4</span></code></pre></div>
+<pre><code>## # A tibble: 7 x 2
+##   IUCN_CAT     n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 Ia        1539
+## 2 Ib         256
+## 3 II         731
+## 4 III        756
+## 5 IV        4872
+## 6 V         1638
+## 7 VI         979</code></pre>
+<p>The values of interest are in the column named <code>n</code>, which are the numbers associated with each level of protection. We refer to just this column using the command <code>data4$n</code>. Use the following code to make the bar plot:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="how-to-do-the-analysis-in-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(data4<span class="sc">$</span>n,</span>
+<span id="cb34-2"><a href="how-to-do-the-analysis-in-r.html#cb34-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
+<span id="cb34-3"><a href="how-to-do-the-analysis-in-r.html#cb34-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Number of areas&quot;</span>,</span>
+<span id="cb34-4"><a href="how-to-do-the-analysis-in-r.html#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>),</span>
+<span id="cb34-5"><a href="how-to-do-the-analysis-in-r.html#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">1</span>,</span>
+<span id="cb34-6"><a href="how-to-do-the-analysis-in-r.html#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Let’s revisits the data we saved in <code>data5</code>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-do-the-analysis-in-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>data5</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    IUCN_CAT       AREA_SUM
+##    &lt;chr&gt;             &lt;dbl&gt;
+##  1 Ia             2096610.
+##  2 Ib              390707.
+##  3 II             1038162.
+##  4 III             121394.
+##  5 IV             5188049.
+##  6 Not Applicable 2761553.
+##  7 Not Assigned   1506267.
+##  8 Not Reported   9353197.
+##  9 V              5830637.
+## 10 VI             7708143.</code></pre>
+<p>The column containing the data that we want to use for the barplot is <code>data5$AREA_SUM</code> which is that total area for each category. The bar plot showing the areas could be plotted by adding this code to your R script:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="how-to-do-the-analysis-in-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(data5<span class="sc">$</span>AREA_SUM,</span>
+<span id="cb37-2"><a href="how-to-do-the-analysis-in-r.html#cb37-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
+<span id="cb37-3"><a href="how-to-do-the-analysis-in-r.html#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
+<span id="cb37-4"><a href="how-to-do-the-analysis-in-r.html#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NR&quot;</span> ,<span class="st">&quot;V&quot;</span>, <span class="st">&quot;VI&quot;</span>),</span>
+<span id="cb37-5"><a href="how-to-do-the-analysis-in-r.html#cb37-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">3</span>,</span>
+<span id="cb37-6"><a href="how-to-do-the-analysis-in-r.html#cb37-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><strong>ADVANCED ggplot2 (not required)</strong></p>
+<p><code>ggplot2</code> is a package that makes beautiful graphs.</p>
+<p>Install the <code>ggplot2</code> package using the <code>install.packages()</code> and Load the <em>ggplot2</em> package using the <code>library()</code>. We plot a histogram with logarithmic axis by running the code below:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="how-to-do-the-analysis-in-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="how-to-do-the-analysis-in-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA)), <span class="fu">aes</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA))) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="how-to-do-the-analysis-in-r.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>We can also plot with the <code>scale_c_log10()</code> function:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="how-to-do-the-analysis-in-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(data3<span class="sc">$</span>GIS_M_AREA), <span class="fu">aes</span>(data3<span class="sc">$</span>GIS_M_AREA)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="how-to-do-the-analysis-in-r.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;green&quot;</span>, <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="how-to-do-the-analysis-in-r.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 
 </div>
 </div>
