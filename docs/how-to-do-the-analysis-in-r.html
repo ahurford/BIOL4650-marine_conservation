@@ -172,7 +172,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Data importation and filtering</h2>
 <p>Let’s explore the <em>protected areas</em> data from the World Database on Protected Areas.</p>
 <ol style="list-style-type: decimal">
-<li><p>It is best to make a folder on your computer Desktop where you will work on this assignment (if needed, review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">Best Practices</a>).</p></li>
+<li>It is best to make a folder on your computer Desktop where you will work on this assignment (if needed, review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">Best Practices</a>).</li>
+</ol>
+<p><img src="figures/folder.png" width="40%" /></p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Download the <code>.csv</code> file spreadsheet for protected areas in the country you are studying from the <em>World Database on Protected Areas</em> to the folder you made. You may rename the <code>.csv</code> file you downloaded eg. <code>protected_areas.csv</code></p></li>
 <li><p><a href="https://ahurford.github.io/quant-guide-all-courses/rstudio.html#source-pane%5D">Open and save a new R Script</a> in your folder. One of the first commands of your R Script will be to <a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data">load your data</a>. For example:</p></li>
 </ol>
@@ -355,10 +358,10 @@ We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset an
 <span id="cb30-2"><a href="how-to-do-the-analysis-in-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Size of MPAs&quot;</span>,</span>
 <span id="cb30-3"><a href="how-to-do-the-analysis-in-r.html#cb30-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Frequency&quot;</span>,</span>
 <span id="cb30-4"><a href="how-to-do-the-analysis-in-r.html#cb30-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>We can plot these results on a logarithm scale as:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="how-to-do-the-analysis-in-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA), <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">xlab =</span> <span class="st">&quot;x label here&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;y label here&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>We can use a barplot to show the number of areas under each level of protection from the data contained in <code>data4</code>. Remember that <code>data4</code> has two columns:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-do-the-analysis-in-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>data4</span></code></pre></div>
 <pre><code>## # A tibble: 7 x 2
@@ -378,7 +381,7 @@ We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset an
 <span id="cb34-4"><a href="how-to-do-the-analysis-in-r.html#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>,<span class="st">&quot;V&quot;</span>,<span class="st">&quot;VI&quot;</span>),</span>
 <span id="cb34-5"><a href="how-to-do-the-analysis-in-r.html#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">1</span>,</span>
 <span id="cb34-6"><a href="how-to-do-the-analysis-in-r.html#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>Let’s revisits the data we saved in <code>data5</code>.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-do-the-analysis-in-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>data5</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
@@ -401,19 +404,23 @@ We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset an
 <span id="cb37-4"><a href="how-to-do-the-analysis-in-r.html#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">c</span>(<span class="st">&quot;Ia&quot;</span>,<span class="st">&quot;Ib&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>,<span class="st">&quot;IV&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;NR&quot;</span> ,<span class="st">&quot;V&quot;</span>, <span class="st">&quot;VI&quot;</span>),</span>
 <span id="cb37-5"><a href="how-to-do-the-analysis-in-r.html#cb37-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">3</span>,</span>
 <span id="cb37-6"><a href="how-to-do-the-analysis-in-r.html#cb37-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
-<p><strong>ADVANCED ggplot2 (not required)</strong></p>
-<p><code>ggplot2</code> is a package that makes beautiful graphs.</p>
-<p>Install the <code>ggplot2</code> package using the <code>install.packages()</code> and Load the <em>ggplot2</em> package using the <code>library()</code>. We plot a histogram with logarithmic axis by running the code below:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="how-to-do-the-analysis-in-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="how-to-do-the-analysis-in-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA)), <span class="fu">aes</span>(<span class="fu">log</span>(data3<span class="sc">$</span>GIS_M_AREA))) <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="how-to-do-the-analysis-in-r.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
-<p>We can also plot with the <code>scale_c_log10()</code> function:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="how-to-do-the-analysis-in-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(data3<span class="sc">$</span>GIS_M_AREA), <span class="fu">aes</span>(data3<span class="sc">$</span>GIS_M_AREA)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="how-to-do-the-analysis-in-r.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;green&quot;</span>, <span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="how-to-do-the-analysis-in-r.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<!-- **ADVANCED ggplot2 (not required)** -->
+<!-- `ggplot2` is a package that makes beautiful graphs. -->
+<!-- Install the `ggplot2` package using the `install.packages()` and Load the _ggplot2_ package using the `library()`. We plot a histogram with logarithmic axis by running the code below: -->
+<!-- ```{r} -->
+<!-- library(ggplot2) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- ggplot(data.frame(log(data3$GIS_M_AREA)), aes(log(data3$GIS_M_AREA))) +  -->
+<!--   geom_histogram(bins = 50) -->
+<!-- ``` -->
+<!-- We can also plot with the `scale_c_log10()` function: -->
+<!-- ```{r} -->
+<!-- ggplot(data.frame(data3$GIS_M_AREA), aes(data3$GIS_M_AREA)) + -->
+<!-- geom_histogram(color = "blue", fill = "green", bins = 50) + -->
+<!-- scale_x_log10() -->
+<!-- ``` -->
 
 </div>
 </div>

@@ -9,7 +9,7 @@ description: "Guide to help in analyzing data of coastal and marine protected ar
 
 # Getting started and Learning R {-}
 
-If you have not used `R` previously, we recommend that you work through Chapters 1 to 10 of the [Quantitative training guide](https://ahurford.github.io/quant-guide-all-courses/), which includes instructions on how to install `R` on a computer.
+If you have not used `R` previously, you may wish to work through Chapters 1 to 10 of the [Quantitative training guide](https://ahurford.github.io/quant-guide-all-courses/), which includes instructions on how to install `R` on a computer.
 
 ## To hand-in {-}
 **EVAN:** We should give the students some guidance on what they are to hand-in. Usually we might ask for a working R Script, because if just the figures are required the students can take screenshots.
@@ -21,6 +21,10 @@ If you have not used `R` previously, we recommend that you work through Chapters
 Let's explore the _protected areas_ data from the World Database on Protected Areas.
 
 1.  It is best to make a folder on your computer Desktop where you will work on this assignment (if needed, review [Best Practices](https://ahurford.github.io/quant-guide-all-courses/style.html)).
+
+```{r,out.width="40%",echo=F}
+knitr::include_graphics('./figures/folder.png')
+```
 
 2.  Download the `.csv` file spreadsheet for protected areas in the country you are studying from the _World Database on Protected Areas_ to the folder you made. You may rename the `.csv` file you downloaded eg. `protected_areas.csv`
 
@@ -308,26 +312,26 @@ barplot(data5$AREA_SUM,
         main="Area of land and water for each level of protection")
 ```
 
-**ADVANCED ggplot2 (not required)**
+<!-- **ADVANCED ggplot2 (not required)** -->
 
-`ggplot2` is a package that makes beautiful graphs.
+<!-- `ggplot2` is a package that makes beautiful graphs. -->
 
-Install the `ggplot2` package using the `install.packages()` and Load the _ggplot2_ package using the `library()`. We plot a histogram with logarithmic axis by running the code below:
+<!-- Install the `ggplot2` package using the `install.packages()` and Load the _ggplot2_ package using the `library()`. We plot a histogram with logarithmic axis by running the code below: -->
 
-```{r}
-library(ggplot2)
-```
+<!-- ```{r} -->
+<!-- library(ggplot2) -->
+<!-- ``` -->
 
-```{r}
-ggplot(data.frame(log(data3$GIS_M_AREA)), aes(log(data3$GIS_M_AREA))) + 
-  geom_histogram(bins = 50)
-```
+<!-- ```{r} -->
+<!-- ggplot(data.frame(log(data3$GIS_M_AREA)), aes(log(data3$GIS_M_AREA))) +  -->
+<!--   geom_histogram(bins = 50) -->
+<!-- ``` -->
 
-We can also plot with the `scale_c_log10()` function:
+<!-- We can also plot with the `scale_c_log10()` function: -->
 
-```{r}
-ggplot(data.frame(data3$GIS_M_AREA), aes(data3$GIS_M_AREA)) +
-geom_histogram(color = "blue", fill = "green", bins = 50) +
-scale_x_log10()
-```
+<!-- ```{r} -->
+<!-- ggplot(data.frame(data3$GIS_M_AREA), aes(data3$GIS_M_AREA)) + -->
+<!-- geom_histogram(color = "blue", fill = "green", bins = 50) + -->
+<!-- scale_x_log10() -->
+<!-- ``` -->
 
