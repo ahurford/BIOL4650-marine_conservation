@@ -212,7 +212,7 @@ data4 <- data3 %>%
 **Approch 2: base R**
 
 ```{r, results=F}
-data4 <- aggregate(cbind(n = WDPAID) ~ IUCN_CAT, 
+data4 <- aggregate(cbind(n = IUCN_CAT) ~ IUCN_CAT, 
           data = data3, 
           FUN = function(x){NROW(x)})
 ```
