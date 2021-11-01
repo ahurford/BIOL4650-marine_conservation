@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Analysis of Data on the Existing Coastal and Marine Protected Areas</title>
+  <title>3 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Analysis of Data on the Existing Coastal and Marine Protected Areas</title>
   <meta name="description" content="Guide to help in analyzing data of coastal and marine protected areas" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Analysis of Data on the Existing Coastal and Marine Protected Areas" />
+  <meta property="og:title" content="3 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Analysis of Data on the Existing Coastal and Marine Protected Areas" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jbaafi/BIOL4650-marine_conservation" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Analysis of Data on the Existing Coastal and Marine Protected Areas" />
+  <meta name="twitter:title" content="3 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD | Analysis of Data on the Existing Coastal and Marine Protected Areas" />
   
   <meta name="twitter:description" content="Guide to help in analyzing data of coastal and marine protected areas" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="how-to-do-the-analysis-in-r.html"/>
+<link rel="prev" href="how-to-do-the-analysis-in-r.html"/>
+<link rel="next" href="head-1.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -139,7 +139,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i><b>2.1</b> Data importation and filtering</a></li>
 <li class="chapter" data-level="2.2" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#preparing-the-data-for-graphing"><i class="fa fa-check"></i><b>2.2</b> Preparing the data for graphing</a></li>
-<li class="chapter" data-level="2.3" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#making-graphs"><i class="fa fa-check"></i><b>2.3</b> Making graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="head.html"><a href="head.html"><i class="fa fa-check"></i><b>3</b> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</a></li>
+<li class="chapter" data-level="4" data-path="head-1.html"><a href="head-1.html"><i class="fa fa-check"></i><b>4</b> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="head-1.html"><a href="head-1.html#making-graphs"><i class="fa fa-check"></i><b>4.1</b> Making graphs</a></li>
 </ul></li>
 </ul>
 
@@ -158,25 +162,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Analysis of Data on the Existing Coastal and Marine Protected Areas</h1>
-</div>
-<div id="getting-started-and-learning-r" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Getting started and Learning R</h1>
-<p>If you have not used <code>R</code> previously, you may wish to work through Chapters 1 to 10 of the <a href="https://ahurford.github.io/quant-guide-all-courses/">Quantitative training guide</a>, which includes instructions on how to install <code>R</code> on a computer.</p>
-<p>In particular, in this lab you will work with the commands for <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#dplyr">Handling data using dplyr</a> and <a href="https://ahurford.github.io/quant-guide-all-courses/graph.html">Making graphs in R</a>. To learn more about the commands that we are using in this lab, we recommend you read these sections.</p>
-<div id="to-hand-in" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> To hand-in</h2>
-<p>You are to hand-in your R Script along with the requirements described on the assignment sheet.</p>
-</div>
+<div id="head" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
+<p><strong>Approch 2: base R</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="head.html#cb21-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">cbind</span>(<span class="at">n =</span> IUCN_CAT) <span class="sc">~</span> IUCN_CAT, </span>
+<span id="cb21-2"><a href="head.html#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> data3, </span>
+<span id="cb21-3"><a href="head.html#cb21-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x){<span class="fu">NROW</span>(x)})</span></code></pre></div>
+<p><strong>Both approaches</strong></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>e31e86f113159ce879830e4261452e0825b3f3ab
+Let’s query the result in our <code>Console</code> to see that this worked:</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="head.html#cb22-1" aria-hidden="true" tabindex="-1"></a>data4</span></code></pre></div>
+<pre><code>##       IUCN_CAT n
+## 1           II 8
+## 2          III 4
+## 3 Not Reported 8</code></pre>
+<p>Note that for the original Ecuador data this did not work because all entries in the <code>IUCN_CAT</code> column were <code>Not Reported</code> or <code>Not Applicable</code> (<code>ecuador.csv</code> is a supplemented version of the true Ecuador data with some <code>IUCN_CAT</code> set to <code>II</code> and <code>III</code>). In this example, row 3 is <code>Not Reported</code>. We need to remove this row:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="head.html#cb24-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> data4[<span class="sc">-</span><span class="dv">3</span>, ] </span></code></pre></div>
+<p>Note that the minus sign indicates to remove, and now <code>data4</code> has the <code>Not Reported</code> row (both columns) removed. If you have more than one row to be removed, you would use <code>data4 &lt;- data4[-c(3,4,6),]</code> where you want to remove rows 3, 4, and 6. (Note that the comma is needed outside the round bracket to indicate all columns. The rows are specified by <code>c(3,4,6)</code>).</p>
+<p>Here <code>data4</code> appears on both the left- and righthand size of <code>&lt;-</code>, so the old variable <code>data4</code> (containing row 3) is overwritten with the new variable <code>data4</code>, which has row 3 removed.</p>
+<p>Our data describing the number of areas in each level of protection is now ready as <code>data4</code>, but let’s clean more data to make another graph before moving on to the graphing section. You R Script should now look like this:</p>
+<p><img src="figures/data4.png" width="80%" /></p>
+<p>(where the top rows of code weren’t able to fit in the screen shot, but they are the same as before)</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Now we would like to calculate the amount of area that is strongly protected.</li>
+</ol>
+<p>We can do this by grouping by the <code>IUCN_CAT</code> column of <code>data3</code>, and summing the area <code>GIS_M_AREA</code> for the MPAs within the group. We name the result <code>data5</code>. Run this command in your R Console:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="head.html#cb25-1" aria-hidden="true" tabindex="-1"></a>data5 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="head.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(IUCN_CAT) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="head.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">AREA_SUM =</span> <span class="fu">sum</span>(GIS_M_AREA))</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="how-to-do-the-analysis-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="how-to-do-the-analysis-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="head-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

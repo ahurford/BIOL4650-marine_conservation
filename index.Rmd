@@ -192,19 +192,6 @@ data4 <- data3 %>%
   tally()
 ```
 
-<<<<<<< HEAD
-=======
-**Approch 2: base R**
-
-```{r, results=F}
-data4 <- aggregate(cbind(n = IUCN_CAT) ~ IUCN_CAT, 
-          data = data3, 
-          FUN = function(x){NROW(x)})
-```
-
-**Both approaches**
-
->>>>>>> e31e86f113159ce879830e4261452e0825b3f3ab
 Let's query the result in our `Console` to see that this worked:
 
 ```{r}
@@ -239,16 +226,6 @@ data5 <- data3 %>%
   summarise(AREA_SUM = sum(GIS_M_AREA))
 ```
 
-<<<<<<< HEAD
-=======
-**Approach 2: base R**
-```{r, eval=F}
-data5 <- aggregate(GIS_M_AREA ~ IUCN_CAT, data3, sum)
-```
-
-**Both approaches**
-
->>>>>>> e31e86f113159ce879830e4261452e0825b3f3ab
 We can check the result by typing, in the Console:
 
 ```{r}
@@ -283,15 +260,7 @@ knitr::include_graphics('./figures/plot.png')
 We can plot these results on a logarithm scale as:
 
 ```{r}
-<<<<<<< HEAD
 hist(log(data3$GIS_M_AREA), breaks = 50, xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
-=======
-hist(log(data3$GIS_M_AREA),
-     breaks = 50,
-     xlab = "log of the size of MPAs",
-     ylab = "Frequency",
-     main = "Log-scale frequency disribution of MPAs")   # Histogram with logarithmic axis
->>>>>>> e31e86f113159ce879830e4261452e0825b3f3ab
 ```
 
 The above command, when you have corrected the title and axis labels, you can add to your R Script.
