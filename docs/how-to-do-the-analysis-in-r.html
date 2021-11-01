@@ -294,7 +294,7 @@ To remove the <code>NA</code>s</p>
 <span id="cb23-2"><a href="how-to-do-the-analysis-in-r.html#cb23-2"></a><span class="st">  </span><span class="kw">group_by</span>(IUCN_CAT) <span class="op">%&gt;%</span></span>
 <span id="cb23-3"><a href="how-to-do-the-analysis-in-r.html#cb23-3"></a><span class="st">  </span><span class="kw">tally</span>()</span></code></pre></div>
 <p><strong>Approch 2: base R</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="how-to-do-the-analysis-in-r.html#cb24-1"></a>data4 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(<span class="kw">cbind</span>(<span class="dt">n =</span> WDPAID) <span class="op">~</span><span class="st"> </span>IUCN_CAT, </span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="how-to-do-the-analysis-in-r.html#cb24-1"></a>data4 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(<span class="kw">cbind</span>(<span class="dt">n =</span> IUCN_CAT) <span class="op">~</span><span class="st"> </span>IUCN_CAT, </span>
 <span id="cb24-2"><a href="how-to-do-the-analysis-in-r.html#cb24-2"></a>          <span class="dt">data =</span> data3, </span>
 <span id="cb24-3"><a href="how-to-do-the-analysis-in-r.html#cb24-3"></a>          <span class="dt">FUN =</span> <span class="cf">function</span>(x){<span class="kw">NROW</span>(x)})</span></code></pre></div>
 <p><strong>Both approaches</strong></p>
@@ -357,7 +357,11 @@ We can do this by grouping by the <code>IUCN_CAT</code> column of the dataset an
 <span id="cb32-4"><a href="how-to-do-the-analysis-in-r.html#cb32-4"></a>     <span class="dt">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>We can plot these results on a logarithm scale as:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="how-to-do-the-analysis-in-r.html#cb33-1"></a><span class="kw">hist</span>(<span class="kw">log</span>(data3<span class="op">$</span>GIS_M_AREA), <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">xlab =</span> <span class="st">&quot;log of the size of MPAs&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Frequency&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="how-to-do-the-analysis-in-r.html#cb33-1"></a><span class="kw">hist</span>(<span class="kw">log</span>(data3<span class="op">$</span>GIS_M_AREA),</span>
+<span id="cb33-2"><a href="how-to-do-the-analysis-in-r.html#cb33-2"></a>     <span class="dt">breaks =</span> <span class="dv">50</span>,</span>
+<span id="cb33-3"><a href="how-to-do-the-analysis-in-r.html#cb33-3"></a>     <span class="dt">xlab =</span> <span class="st">&quot;log of the size of MPAs&quot;</span>,</span>
+<span id="cb33-4"><a href="how-to-do-the-analysis-in-r.html#cb33-4"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb33-5"><a href="how-to-do-the-analysis-in-r.html#cb33-5"></a>     <span class="dt">main =</span> <span class="st">&quot;Log-scale frequency disribution of MPAs&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>We can use a barplot to show the number of areas under each level of protection from the data contained in <code>data4</code>. Remember that <code>data4</code> has two columns:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="how-to-do-the-analysis-in-r.html#cb34-1"></a>data4</span></code></pre></div>

@@ -281,7 +281,11 @@ hist(data3$GIS_M_AREA, breaks = 50,
 We can plot these results on a logarithm scale as:
 
 ```{r}
-hist(log(data3$GIS_M_AREA), breaks = 50, xlab = "log of the size of MPAs", ylab = "Frequency")   # Histogram with logarithmic axis
+hist(log(data3$GIS_M_AREA),
+     breaks = 50,
+     xlab = "log of the size of MPAs",
+     ylab = "Frequency",
+     main = "Log-scale frequency disribution of MPAs")   # Histogram with logarithmic axis
 ```
 
 We can use a barplot to show the number of areas under each level of protection from the data contained in `data4`. Remember that `data4` has two columns:
