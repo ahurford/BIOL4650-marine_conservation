@@ -1,0 +1,6 @@
+getting-started-and-learning-r
+to-hand-in
+how-to-do-the-analysis-in-r
+data-importation-and-filtering
+preparing-the-data-for-graphing
+making-graphs
