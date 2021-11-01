@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Analysis of Data on the Existing Coastal and Marine Protected Areas</title>
   <meta name="description" content="Guide to help in analyzing data of coastal and marine protected areas" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Analysis of Data on the Existing Coastal and Marine Protected Areas" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,8 @@
   
 
 <link rel="next" href="how-to-do-the-analysis-in-r.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,24 +48,24 @@
 
 
 
-
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -131,20 +131,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting started and Learning R</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-hand-in"><i class="fa fa-check"></i>To hand-in</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html"><i class="fa fa-check"></i>How to do the analysis in R</a>
-<ul>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html"><i class="fa fa-check"></i>How to do the analysis in R</a><ul>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#data-importation-and-filtering"><i class="fa fa-check"></i>Data importation and filtering</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#creating-a-new-object"><i class="fa fa-check"></i>Creating a new object</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#preparing-the-data-for-graphing"><i class="fa fa-check"></i>Preparing the data for graphing</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r.html"><a href="how-to-do-the-analysis-in-r.html#making-graphs"><i class="fa fa-check"></i>Making graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started-and-learning-r-1.html"><a href="getting-started-and-learning-r-1.html"><i class="fa fa-check"></i>Getting started and Learning R</a></li>
-<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html"><i class="fa fa-check"></i>How to do the analysis in R</a>
-<ul>
+<li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html"><i class="fa fa-check"></i>How to do the analysis in R</a><ul>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#data-importation-and-filtering-1"><i class="fa fa-check"></i>Data importation and filtering</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#creating-a-new-object-1"><i class="fa fa-check"></i>Creating a new object</a></li>
 <li class="chapter" data-level="" data-path="how-to-do-the-analysis-in-r-1.html"><a href="how-to-do-the-analysis-in-r-1.html#graphing-the-data"><i class="fa fa-check"></i>Graphing the data</a></li>
@@ -187,7 +184,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -227,6 +223,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
