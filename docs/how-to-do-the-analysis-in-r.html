@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="how-to-do-the-analysis-in-r.html#cb1-1"></a>data1 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;ecuador.csv&quot;</span>)</span></code></pre></div>
 <p>The above command is essential to your analysis so you should add it to your R Script. Your R Script should look something like this:</p>
-<p><img src="figures/first_few.png" width="80%" /></p>
+<p><img src="figures/load_data.png" width="80%" /></p>
 <p>However, you will not have selected Ecuador as your country, so your script will look slightly different (the data for Ecuador are unuseable for this exercise, so the dataset <code>ecuador.csv</code> is example data that are made up).</p>
 <ol start="5" style="list-style-type: decimal">
 <li>In the above screenshot, you can see that I have queried <code>head(data1)</code> in my Console. This was to check that my data had loaded. Steps that are essential to an analysis, I add to my R Script in the Source pane, in the order that I want them to run in. When I want to check something, then I do this in my Console. You want to use the Console like <em>scratch paper</em>, and the R Script as your <em>final work</em>. See <a href="https://ahurford.github.io/quant-guide-all-courses/rstudio.html">Finding your way around R Studio</a> for an explanation of where the Source and Console panes are.</li>
@@ -231,7 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Check your output (in your Console). In particular, look at the <code>MARINE</code> column.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="how-to-do-the-analysis-in-r.html#cb8-1"></a>data2<span class="op">$</span>MARINE</span></code></pre></div>
 <p>Are there any <code>0</code>s left in the <code>MARINE</code> column? No? Good, because we want the marine sites, so we do not want any <code>0</code>s in the <code>MARINE</code> column. Now we have found a line of code that works for our analysis so we add it to our R Script:</p>
-<p><img src="figures/filter.png" width="80%" /></p>
+<p><img src="figures/data2.png" width="80%" /></p>
 <p>In the above screen shot you can see that after I source my full R Script, I check to see that I have filtered out the sites that are not marine. If your country doesn’t include any marine sites, you will need to choose another country.</p>
 <ol start="12" style="list-style-type: decimal">
 <li>We want to compute the average size of coastal MPAs for the example Ecuador data. Unfortunately, some of the MPAs have <code>NA</code> instead of a reported size in the <code>GIS_M_AREA</code> column:</li>
@@ -258,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="15" style="list-style-type: decimal">
 <li>The line of code that makes <code>data3</code> is an essential step in the analysis so you will want to add it as the next line of code in your R Script:</li>
 </ol>
-<p><img src="figures/step3.png" width="80%" /></p>
+<p><img src="figures/data3.png" width="80%" /></p>
 <ol start="16" style="list-style-type: decimal">
 <li>We can now calculate the mean and median sizes of the coastal MPAs. Let’s run this code in your Console:</li>
 </ol>
@@ -338,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-4"><a href="how-to-do-the-analysis-in-r.html#cb30-4"></a>     <span class="dt">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>Note that the graph appears in the plot window:</p>
-<p><img src="figures/plot.png" width="80%" /></p>
+<p><img src="figures/hist.png" width="80%" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>We can plot these results on a logarithm scale as:</li>
 </ol>
@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>The next lines of your R Script would look like this:
-<img src="figures/final.png" width="80%" /></p></li>
+<img src="figures/plots.png" width="80%" /></p></li>
 <li><p>See <a href="https://ahurford.github.io/quant-guide-all-courses/graph.html#export">here</a> for instructions for how to export your graphs.</p></li>
 </ol>
 <!-- **ADVANCED ggplot2 (not required)** -->

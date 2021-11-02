@@ -49,7 +49,7 @@ data1 <- read.csv(file = "ecuador.csv")
 The above command is essential to your analysis so you should add it to your R Script. Your R Script should look something like this:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/first_few.png')
+knitr::include_graphics('./figures/load_data.png')
 ```
 
 However, you will not have selected Ecuador as your country, so your script will look slightly different (the data for Ecuador are unuseable for this exercise, so the dataset `ecuador.csv` is example data that are made up). 
@@ -120,7 +120,7 @@ data2$MARINE
 Are there any `0`s left in the `MARINE` column? No? Good, because we want the marine sites, so we do not want any `0`s in the `MARINE` column. Now we have found a line of code that works for our analysis so we add it to our R Script:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/filter.png')
+knitr::include_graphics('./figures/data2.png')
 ```
 
 In the above screen shot you can see that after I source my full R Script, I check to see that I have filtered out the sites that are not marine. If your country doesn't include any marine sites, you will need to choose another country.
@@ -162,7 +162,7 @@ Now we see that `data3` is a cleaned up version of `data2` that no longer contai
 15. The line of code that makes `data3` is an essential step in the analysis so you will want to add it as the next line of code in your R Script:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/step3.png')
+knitr::include_graphics('./figures/data3.png')
 ```
 
 16. We can now calculate the mean and median sizes of the coastal MPAs. Let's run this code in your Console:
@@ -275,7 +275,7 @@ hist(data3$GIS_M_AREA, breaks = 50,
 Note that the graph appears in the plot window:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/plot.png')
+knitr::include_graphics('./figures/hist.png')
 ```
 
 2. We can plot these results on a logarithm scale as:
@@ -323,7 +323,7 @@ barplot(data5$x,
 
 5. The next lines of your R Script would look like this:
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/final.png')
+knitr::include_graphics('./figures/plots.png')
 ```
 
 6. See [here](https://ahurford.github.io/quant-guide-all-courses/graph.html#export) for instructions for how to export your graphs.
