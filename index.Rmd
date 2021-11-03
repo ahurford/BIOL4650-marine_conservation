@@ -47,7 +47,7 @@ data1 <- read.csv(file = "ecuador.csv")
 The above command is essential to your analysis so you should add it to your R Script. Your R Script should look something like this:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/data1.png')
+knitr::include_graphics('./figures/data1.1.png')
 ```
 
 However, you will not have selected Ecuador as your country, so your script will look slightly different (the data for Ecuador are unuseable for this exercise, so the dataset `ecuador.csv` is example data that are made up). 
