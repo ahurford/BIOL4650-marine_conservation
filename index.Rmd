@@ -178,7 +178,7 @@ print(paste0("Median of MPAs (km2): ", median.area))
 The lines of code that calculate the mean and median are essential in the analysis so you will want to add them as the next lines of code in your R Script:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/mean-median.png')
+knitr::include_graphics('./figures/mean-median2.png')
 ```
 
 We use the print command so that the mean and median values are printed out when we run our R Script. This is necessary to replicate the analysis that produced our assignment results by running the R Script. You should add the above lines of code to your R Script.
@@ -200,7 +200,7 @@ You will want to add these lines of code as the next lines of code in your R Scr
 
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/no-take-area.png')
+knitr::include_graphics('./figures/no-take-area2.png')
 ```
 
 ## Preparing the data for graphing
@@ -237,7 +237,7 @@ Here `data4` appears on both the left- and righthand size of `<-`, so the old va
 3. Our data describing the number of areas in each level of protection is now ready as `data4`, but let's clean more data to make another graph before moving on to the graphing section. Your R Script should now look like this:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/data4.png')
+knitr::include_graphics('./figures/data4.2.png')
 ```
 
 (where the top rows of code weren't able to fit in the screen shot, but they are the same as before)
@@ -267,7 +267,7 @@ data5 <- data5[-3,]
 You should add the lines that generate `data5` to your R Script.
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/data5.png')
+knitr::include_graphics('./figures/data5.1.png')
 ```
 
 If it is confusing to follow such specific instructions, and you would like to have a more general understanding of the commands, you might read [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html).
@@ -290,7 +290,7 @@ hist(data3$GIS_M_AREA, breaks = 50,
 Note that the graph appears in the plot window:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/hist.png')
+knitr::include_graphics('./figures/hist2.png')
 ```
 
 2. We can plot these results on a logarithm scale as:
@@ -338,7 +338,7 @@ barplot(data5$x,
 
 5. The next lines of your R Script would look like this:
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/plots.png')
+knitr::include_graphics('./figures/plots2.png')
 ```
 
 6. See [here](https://ahurford.github.io/quant-guide-all-courses/graph.html#export) for instructions for how to export your graphs.
