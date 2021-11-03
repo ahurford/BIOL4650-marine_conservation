@@ -349,37 +349,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="how-to-do-the-analysis-in-r.html#cb31-1"></a>log10.area &lt;-<span class="st"> </span><span class="kw">log</span>(data3<span class="op">$</span>GIS_M_AREA,<span class="dv">10</span>)</span>
 <span id="cb31-2"><a href="how-to-do-the-analysis-in-r.html#cb31-2"></a><span class="kw">hist</span>(log10.area, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">xlab =</span> <span class="st">&quot;x label here&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;y label here&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;title here&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>The histogram above has log data on the x-axis. The x-axis values can be replaced with multiples of 10 and we do this by running the code to replace the labels
+on the x-axis:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-do-the-analysis-in-r.html#cb32-1"></a>log10.area &lt;-<span class="st"> </span><span class="kw">log</span>(data3<span class="op">$</span>GIS_M_AREA,<span class="dv">10</span>)</span>
+<span id="cb32-2"><a href="how-to-do-the-analysis-in-r.html#cb32-2"></a><span class="kw">hist</span>(log10.area, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;x label here&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;y label here&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;title here&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span>
+<span id="cb32-3"><a href="how-to-do-the-analysis-in-r.html#cb32-3"></a><span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">at =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>))</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>The above command, when you have corrected the title and axis labels, you can add to your R Script.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>We can use a barplot to show the number of areas under each level of protection from the data contained in <code>data4</code>. Remember that <code>data4</code> has two columns:</li>
 </ol>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-do-the-analysis-in-r.html#cb32-1"></a>data4</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="how-to-do-the-analysis-in-r.html#cb33-1"></a>data4</span></code></pre></div>
 <pre><code>##   Group.1 x
 ## 1      II 8
 ## 2     III 4</code></pre>
 <p>The values of interest are in the column named <code>x</code>, which are the numbers associated with each level of protection. We refer to just this column using the command <code>data4$x</code>. The names to go on the x-axis of the barplot are <code>data4$Group.1</code>. Use the following code to make the bar plot and add it to your R Script:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="how-to-do-the-analysis-in-r.html#cb34-1"></a><span class="kw">barplot</span>(data4<span class="op">$</span>x,</span>
-<span id="cb34-2"><a href="how-to-do-the-analysis-in-r.html#cb34-2"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
-<span id="cb34-3"><a href="how-to-do-the-analysis-in-r.html#cb34-3"></a>        <span class="dt">ylab=</span><span class="st">&quot;Number of areas&quot;</span>,</span>
-<span id="cb34-4"><a href="how-to-do-the-analysis-in-r.html#cb34-4"></a>        <span class="dt">names.arg=</span>data4<span class="op">$</span>Group<span class="fl">.1</span>,</span>
-<span id="cb34-5"><a href="how-to-do-the-analysis-in-r.html#cb34-5"></a>        <span class="dt">las=</span><span class="dv">1</span>,</span>
-<span id="cb34-6"><a href="how-to-do-the-analysis-in-r.html#cb34-6"></a>        <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-do-the-analysis-in-r.html#cb35-1"></a><span class="kw">barplot</span>(data4<span class="op">$</span>x,</span>
+<span id="cb35-2"><a href="how-to-do-the-analysis-in-r.html#cb35-2"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
+<span id="cb35-3"><a href="how-to-do-the-analysis-in-r.html#cb35-3"></a>        <span class="dt">ylab=</span><span class="st">&quot;Number of areas&quot;</span>,</span>
+<span id="cb35-4"><a href="how-to-do-the-analysis-in-r.html#cb35-4"></a>        <span class="dt">names.arg=</span>data4<span class="op">$</span>Group<span class="fl">.1</span>,</span>
+<span id="cb35-5"><a href="how-to-do-the-analysis-in-r.html#cb35-5"></a>        <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb35-6"><a href="how-to-do-the-analysis-in-r.html#cb35-6"></a>        <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Let’s revisit the data we saved in <code>data5</code>. Enter into your Console:</li>
 </ol>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-do-the-analysis-in-r.html#cb35-1"></a>data5</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="how-to-do-the-analysis-in-r.html#cb36-1"></a>data5</span></code></pre></div>
 <pre><code>##   Group.1        x
 ## 1      II 125942.7
 ## 2     III 277777.5</code></pre>
 <p>The column containing the data that we want to use for the barplot is <code>data5$x</code> which is that total area for each category. Add the following to your R Script:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="how-to-do-the-analysis-in-r.html#cb37-1"></a><span class="kw">barplot</span>(data5<span class="op">$</span>x,</span>
-<span id="cb37-2"><a href="how-to-do-the-analysis-in-r.html#cb37-2"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
-<span id="cb37-3"><a href="how-to-do-the-analysis-in-r.html#cb37-3"></a>        <span class="dt">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
-<span id="cb37-4"><a href="how-to-do-the-analysis-in-r.html#cb37-4"></a>        <span class="dt">names.arg=</span>data5<span class="op">$</span>Group<span class="fl">.1</span>,</span>
-<span id="cb37-5"><a href="how-to-do-the-analysis-in-r.html#cb37-5"></a>        <span class="dt">las=</span><span class="dv">3</span>,</span>
-<span id="cb37-6"><a href="how-to-do-the-analysis-in-r.html#cb37-6"></a>        <span class="dt">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="how-to-do-the-analysis-in-r.html#cb38-1"></a><span class="kw">barplot</span>(data5<span class="op">$</span>x,</span>
+<span id="cb38-2"><a href="how-to-do-the-analysis-in-r.html#cb38-2"></a>        <span class="dt">xlab =</span> <span class="st">&quot;Level of protection&quot;</span>,</span>
+<span id="cb38-3"><a href="how-to-do-the-analysis-in-r.html#cb38-3"></a>        <span class="dt">ylab=</span><span class="st">&quot;Area(Amt. land and water/km^2)&quot;</span>,</span>
+<span id="cb38-4"><a href="how-to-do-the-analysis-in-r.html#cb38-4"></a>        <span class="dt">names.arg=</span>data5<span class="op">$</span>Group<span class="fl">.1</span>,</span>
+<span id="cb38-5"><a href="how-to-do-the-analysis-in-r.html#cb38-5"></a>        <span class="dt">las=</span><span class="dv">3</span>,</span>
+<span id="cb38-6"><a href="how-to-do-the-analysis-in-r.html#cb38-6"></a>        <span class="dt">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>The next lines of your R Script would look like this:
 <img src="figures/plots2.png" width="80%" /></p></li>

@@ -300,6 +300,15 @@ log10.area <- log(data3$GIS_M_AREA,10)
 hist(log10.area, breaks = 50, xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
 ```
 
+The histogram above has log data on the x-axis. The x-axis values can be replaced with multiples of 10 and we do this by running the code to replace the labels
+on the x-axis:
+
+```{r}
+log10.area <- log(data3$GIS_M_AREA,10)
+hist(log10.area, breaks = 50, xaxt = "n", xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
+axis(side = 1, at = seq(1, 5), labels = c(10, 100, 1000, 10000, 100000))
+```
+
 The above command, when you have corrected the title and axis labels, you can add to your R Script.
 
 3. We can use a barplot to show the number of areas under each level of protection from the data contained in `data4`. Remember that `data4` has two columns:
