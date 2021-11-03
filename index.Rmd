@@ -300,8 +300,7 @@ log10.area <- log(data3$GIS_M_AREA,10)
 hist(log10.area, breaks = 50, xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
 ```
 
-The histogram above has log data on the x-axis. The x-axis values can be replaced with multiples of 10 and we do this by running the code to replace the labels
-on the x-axis:
+The histogram above has log data on the x-axis. The x-axis values can be replaced with multiples of 10 and we do this by running the lines of code:
 
 ```{r}
 log10.area <- log(data3$GIS_M_AREA,10)
