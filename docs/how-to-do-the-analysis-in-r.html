@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-5"><a href="how-to-do-the-analysis-in-r.html#cb17-5"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Median of MPAs (km2): &quot;</span>, median.area))</span></code></pre></div>
 <p>(Note <code>mean(data2$GIS_M_AREA)</code> returns <code>NA</code> due to the <code>NA</code>s having not been removed in the data frame <code>data2</code>)</p>
 <p>The lines of code that calculate the mean and median are essential in the analysis so you will want to add them as the next lines of code in your R Script:</p>
-<p><img src="figures/mean-median2.png" width="80%" /></p>
+<p><img src="figures/mean-median.png" width="80%" /></p>
 <p>We use the print command so that the mean and median values are printed out when we run our R Script. This is necessary to replicate the analysis that produced our assignment results by running the R Script. You should add the above lines of code to your R Script.</p>
 <ol start="17" style="list-style-type: decimal">
 <li>We would like to calculate the total area that is ‘no take’. Let’s check the appropriate column of the data:</li>
@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb20-3"><a href="how-to-do-the-analysis-in-r.html#cb20-3"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;No take area (km2): &quot;</span>, area.no.take))</span></code></pre></div>
 <pre><code>## [1] &quot;No take area (km2): 0&quot;</code></pre>
 <p>You will want to add these lines of code as the next lines of code in your R Script which will look like this:</p>
-<p><img src="figures/no-take-area2.png" width="80%" /></p>
+<p><img src="figures/no-take-area.png" width="80%" /></p>
 </div>
 <div id="preparing-the-data-for-graphing" class="section level2">
 <h2><span class="header-section-number">2.2</span> Preparing the data for graphing</h2>
@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" style="list-style-type: decimal">
 <li>Our data describing the number of areas in each level of protection is now ready as <code>data4</code>, but let’s clean more data to make another graph before moving on to the graphing section. Your R Script should now look like this:</li>
 </ol>
-<p><img src="figures/data4.2.png" width="80%" /></p>
+<p><img src="figures/data4.png" width="80%" /></p>
 <p>(where the top rows of code weren’t able to fit in the screen shot, but they are the same as before)</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Now we would like to calculate the amount of area that is strongly protected.</li>
@@ -326,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Again, would like to remove the third row:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="how-to-do-the-analysis-in-r.html#cb29-1"></a>data5 &lt;-<span class="st"> </span>data5[<span class="op">-</span><span class="dv">3</span>,]</span></code></pre></div>
 <p>You should add the lines that generate <code>data5</code> to your R Script.</p>
-<p><img src="figures/data5.1.png" width="80%" /></p>
+<p><img src="figures/data5.png" width="80%" /></p>
 <p>If it is confusing to follow such specific instructions, and you would like to have a more general understanding of the commands, you might read <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling the data</a>.</p>
 </div>
 <div id="making-graphs" class="section level2">
@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-4"><a href="how-to-do-the-analysis-in-r.html#cb30-4"></a>     <span class="dt">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Note that the graph appears in the plot window:</p>
-<p><img src="figures/hist2.png" width="80%" /></p>
+<p><img src="figures/hist.png" width="80%" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>We can plot these results on a logarithm scale as:</li>
 </ol>
@@ -387,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="marine-cons_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>The next lines of your R Script would look like this:
-<img src="figures/plots2.png" width="80%" /></p></li>
+<img src="figures/plots.png" width="80%" /></p></li>
 <li><p>See <a href="https://ahurford.github.io/quant-guide-all-courses/graph.html#export">here</a> for instructions for how to export your graphs.</p></li>
 </ol>
 <!-- **ADVANCED ggplot2 (not required)** -->
