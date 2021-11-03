@@ -158,7 +158,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="how-to-do-the-analysis-in-r" class="section level1">
 <h1><span class="header-section-number">2</span> How to do the analysis in R</h1>
-<p>** To be corrected, numbering and screenshots**</p>
 <div id="data-importation-and-filtering" class="section level2">
 <h2><span class="header-section-number">2.1</span> Data importation and filtering</h2>
 <ol style="list-style-type: decimal">
@@ -177,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="how-to-do-the-analysis-in-r.html#cb1-1"></a>data1 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;ecuador.csv&quot;</span>)</span></code></pre></div>
 <p>The above command is essential to your analysis so you should add it to your R Script. Your R Script should look something like this:</p>
-<p><img src="figures/load_data.png" width="80%" /></p>
+<p><img src="figures/data1.png" width="80%" /></p>
 <p>However, you will not have selected Ecuador as your country, so your script will look slightly different (the data for Ecuador are unuseable for this exercise, so the dataset <code>ecuador.csv</code> is example data that are made up).</p>
 <ol start="5" style="list-style-type: decimal">
 <li>In the above screenshot, you can see that I have queried <code>head(data1)</code> in my Console. This was to check that my data had loaded. Steps that are essential to an analysis, I add to my R Script in the Source pane, in the order that I want them to run in. When I want to check something, then I do this in my Console. You want to use the Console like <em>scratch paper</em>, and the R Script as your <em>final work</em>. See <a href="https://ahurford.github.io/quant-guide-all-courses/rstudio.html">Finding your way around R Studio</a> for an explanation of where the Source and Console panes are.</li>
@@ -268,6 +267,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-4"><a href="how-to-do-the-analysis-in-r.html#cb17-4"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Mean of MPAs (km2): &quot;</span>, mean.area))</span>
 <span id="cb17-5"><a href="how-to-do-the-analysis-in-r.html#cb17-5"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Median of MPAs (km2): &quot;</span>, median.area))</span></code></pre></div>
 <p>(Note <code>mean(data2$GIS_M_AREA)</code> returns <code>NA</code> due to the <code>NA</code>s having not been removed in the data frame <code>data2</code>)</p>
+<p>The lines of code that calculate the mean and median are essential in the analysis so you will want to add them as the next lines of code in your R Script:</p>
+<p><img src="figures/mean-median.png" width="80%" /></p>
 <p>We use the print command so that the mean and median values are printed out when we run our R Script. This is necessary to replicate the analysis that produced our assignment results by running the R Script. You should add the above lines of code to your R Script.</p>
 <ol start="17" style="list-style-type: decimal">
 <li>We would like to calculate the total area that is ‘no take’. Let’s check the appropriate column of the data:</li>
@@ -279,6 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb20-2"><a href="how-to-do-the-analysis-in-r.html#cb20-2"></a></span>
 <span id="cb20-3"><a href="how-to-do-the-analysis-in-r.html#cb20-3"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;No take area (km2): &quot;</span>, area.no.take))</span></code></pre></div>
 <pre><code>## [1] &quot;No take area (km2): 0&quot;</code></pre>
+<p>You will want to add these lines of code as the next lines of code in your R Script which will look like this:</p>
+<p><img src="figures/no-take-area.png" width="80%" /></p>
 </div>
 <div id="preparing-the-data-for-graphing" class="section level2">
 <h2><span class="header-section-number">2.2</span> Preparing the data for graphing</h2>
@@ -323,6 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Again, would like to remove the third row:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="how-to-do-the-analysis-in-r.html#cb29-1"></a>data5 &lt;-<span class="st"> </span>data5[<span class="op">-</span><span class="dv">3</span>,]</span></code></pre></div>
 <p>You should add the lines that generate <code>data5</code> to your R Script.</p>
+<p><img src="figures/data5.png" width="80%" /></p>
 <p>If it is confusing to follow such specific instructions, and you would like to have a more general understanding of the commands, you might read <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling the data</a>.</p>
 </div>
 <div id="making-graphs" class="section level2">
@@ -336,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-2"><a href="how-to-do-the-analysis-in-r.html#cb30-2"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Size of MPAs&quot;</span>,</span>
 <span id="cb30-3"><a href="how-to-do-the-analysis-in-r.html#cb30-3"></a>     <span class="dt">ylab=</span><span class="st">&quot;Frequency&quot;</span>,</span>
 <span id="cb30-4"><a href="how-to-do-the-analysis-in-r.html#cb30-4"></a>     <span class="dt">main =</span> <span class="st">&quot;The size-frequency distribution of MPAs&quot;</span>)   <span class="co"># Histogram without logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Note that the graph appears in the plot window:</p>
 <p><img src="figures/hist.png" width="80%" /></p>
 <ol start="2" style="list-style-type: decimal">
@@ -344,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="how-to-do-the-analysis-in-r.html#cb31-1"></a>log10.area &lt;-<span class="st"> </span><span class="kw">log</span>(data3<span class="op">$</span>GIS_M_AREA,<span class="dv">10</span>)</span>
 <span id="cb31-2"><a href="how-to-do-the-analysis-in-r.html#cb31-2"></a><span class="kw">hist</span>(log10.area, <span class="dt">breaks =</span> <span class="dv">50</span>, <span class="dt">xlab =</span> <span class="st">&quot;x label here&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;y label here&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;title here&quot;</span>)   <span class="co"># Histogram with logarithmic axis</span></span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>The above command, when you have corrected the title and axis labels, you can add to your R Script.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>We can use a barplot to show the number of areas under each level of protection from the data contained in <code>data4</code>. Remember that <code>data4</code> has two columns:</li>
@@ -360,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb34-4"><a href="how-to-do-the-analysis-in-r.html#cb34-4"></a>        <span class="dt">names.arg=</span>data4<span class="op">$</span>Group<span class="fl">.1</span>,</span>
 <span id="cb34-5"><a href="how-to-do-the-analysis-in-r.html#cb34-5"></a>        <span class="dt">las=</span><span class="dv">1</span>,</span>
 <span id="cb34-6"><a href="how-to-do-the-analysis-in-r.html#cb34-6"></a>        <span class="dt">main=</span><span class="st">&quot;Number of areas for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Let’s revisit the data we saved in <code>data5</code>. Enter into your Console:</li>
 </ol>
@@ -375,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb37-4"><a href="how-to-do-the-analysis-in-r.html#cb37-4"></a>        <span class="dt">names.arg=</span>data5<span class="op">$</span>Group<span class="fl">.1</span>,</span>
 <span id="cb37-5"><a href="how-to-do-the-analysis-in-r.html#cb37-5"></a>        <span class="dt">las=</span><span class="dv">3</span>,</span>
 <span id="cb37-6"><a href="how-to-do-the-analysis-in-r.html#cb37-6"></a>        <span class="dt">main=</span><span class="st">&quot;Area of land and water for each level of protection&quot;</span>)</span></code></pre></div>
-<p><img src="marine-cons_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="marine-cons_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>The next lines of your R Script would look like this:
 <img src="figures/plots.png" width="80%" /></p></li>

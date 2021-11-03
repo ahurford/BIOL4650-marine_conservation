@@ -18,8 +18,6 @@ You are to hand-in your R Script along with the requirements described on the as
 
 # How to do the analysis in R
 
-** To be corrected, numbering and screenshots**
-
 ## Data importation and filtering
 
 1.  Begin by making a folder on your D: drive (if you are working in a university computer lab), or on your Desktop (if you are working on your own computer), where you will work on this assignment.
@@ -49,7 +47,7 @@ data1 <- read.csv(file = "ecuador.csv")
 The above command is essential to your analysis so you should add it to your R Script. Your R Script should look something like this:
 
 ```{r,out.width="80%",echo=F}
-knitr::include_graphics('./figures/load_data.png')
+knitr::include_graphics('./figures/data1.png')
 ```
 
 However, you will not have selected Ecuador as your country, so your script will look slightly different (the data for Ecuador are unuseable for this exercise, so the dataset `ecuador.csv` is example data that are made up). 
@@ -177,6 +175,12 @@ print(paste0("Median of MPAs (km2): ", median.area))
 
 (Note `mean(data2$GIS_M_AREA)` returns `NA` due to the `NA`s having not been removed in the data frame `data2`)
 
+The lines of code that calculate the mean and median are essential in the analysis so you will want to add them as the next lines of code in your R Script:
+
+```{r,out.width="80%",echo=F}
+knitr::include_graphics('./figures/mean-median.png')
+```
+
 We use the print command so that the mean and median values are printed out when we run our R Script. This is necessary to replicate the analysis that produced our assignment results by running the R Script. You should add the above lines of code to your R Script.
 
 17. We would like to calculate the total area that is 'no take'. Let's check the appropriate column of the data:
@@ -190,6 +194,13 @@ In the Ecuador example data this value is always 0 (therefore it is not a good e
 area.no.take <- sum(data3$NO_TK_AREA)
 
 print(paste0("No take area (km2): ", area.no.take))
+```
+
+You will want to add these lines of code as the next lines of code in your R Script which will look like this:
+
+
+```{r,out.width="80%",echo=F}
+knitr::include_graphics('./figures/no-take-area.png')
 ```
 
 ## Preparing the data for graphing
@@ -254,6 +265,10 @@ data5 <- data5[-3,]
 ```
 
 You should add the lines that generate `data5` to your R Script.
+
+```{r,out.width="80%",echo=F}
+knitr::include_graphics('./figures/data5.png')
+```
 
 If it is confusing to follow such specific instructions, and you would like to have a more general understanding of the commands, you might read [Handling the data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html).
 
