@@ -123,6 +123,8 @@ knitr::include_graphics('./figures/data2.png')
 
 In the above screen shot you can see that after I source my full R Script, I check to see that I have filtered out the sites that are not marine. If your country doesn't include any marine sites, you will need to choose another country.
 
+Note that `data1$MARINE == 1` will return `TRUE` for all the rows of `data1` where the entry in the `MARINE` column is 1. To retain just these rows you would need: `new.data <- data1$MARINE[data1$MARINE == 1,]`
+
 12. We want to compute the average size of coastal MPAs for the example Ecuador data. Unfortunately, some of the MPAs have `NA` instead of a reported size in the `GIS_M_AREA` column:
 
 ```{r}
@@ -300,13 +302,16 @@ log10.area <- log(data3$GIS_M_AREA,10)
 hist(log10.area, breaks = 50, xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
 ```
 
-The histogram above has log data on the x-axis. The x-axis values can be replaced with multiples of 10 and we do this by running the lines of code:
+The histogram above has log data on the x-axis. We would like to retain the _scale_ of the log axis (i.e. the distance between the ticks is logarithmic), but we would like to replace the values on the x-ticks with the area (by performing the inverse operation of `log(x,10)`, which is `10^x`.). Consider the code below:
 
 ```{r}
 log10.area <- log(data3$GIS_M_AREA,10)
+old.x.vals = seq(0, 6)
 hist(log10.area, breaks = 50, xaxt = "n", xlab = "x label here", ylab = "y label here", main = "title here")   # Histogram with logarithmic axis
-axis(side = 1, at = seq(1, 5), labels = c(10, 100, 1000, 10000, 100000))
+axis(side = 1, at = old.x.vals, labels = 10^old.x.vals)
 ```
+
+For your data, the old values of the x-axis might fall within a different range, or you might wish to increment by 2. You might wish to edit `old.x.vals` about to make a better looking graph for your data. If you are scientific notation, i.e. `1e5` and it doesn't look good, you can add to the beginning of your R script `options(scipen=100)`.
 
 The above command, when you have corrected the title and axis labels, you can add to your R Script.
 
